@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="#222222">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Please Select a Stored Scout below to view its Data!"
+        android:textSize="45dp"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/offlineGoBackButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFFFFF"
+        android:text="Back" />
+
+    <ListView
+        android:id="@+id/scoutedMatches"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView2" 
+        android:cacheColorHint="#00000000">
+    </ListView>
+
+    <ListView
+        android:id="@+id/scoutedPits"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView3" 
+        android:cacheColorHint="#00000000">
+    </ListView>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="Scouted Matches"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF"
+        android:textSize="32dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/scoutedMatches"
+        android:layout_marginTop="22dp"
+        android:gravity="center"
+        android:text="Scouted Pits"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF"
+        android:textSize="32dp" />
+
+    <Button
+        android:id="@+id/offlineDataRefreshButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/offlineGoBackButton"
+        android:layout_alignParentLeft="true"
+        android:textColor="#FFFFFF"
+        android:text="Refresh" />
+
+</RelativeLayout>

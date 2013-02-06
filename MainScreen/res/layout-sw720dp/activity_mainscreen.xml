@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainScreen"  
+    android:background="#222222">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:textColor="#FFFFFF"
+        android:layout_centerHorizontal="true"
+        android:text="2013 Ultimate Ascent"
+        android:textSize="45dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:text="FIRST Scouting App"
+        android:textColor="#FFFFFF"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:text="Brought to you by FRC Team 2410"
+        android:textSize="32dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:textColor="#FFFFFF"
+        android:layout_centerHorizontal="true"
+        android:text="CAPS Metal Mustangs Robotics"
+        android:textSize="32dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="350dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/fieldpic" />
+
+    <Button
+        android:id="@+id/offlineDataButton"
+        android:layout_width="450dp"
+        android:textColor="#FFFFFF"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pitScoutButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:gravity = "center"
+        android:text="View Offline Data" />
+
+    <Button
+        android:id="@+id/scoutMatchButton"
+        android:layout_width="450dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:textColor="#FFFFFF"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="89dp"
+        android:gravity="center"
+        android:text="@string/scoutTeam" />
+
+    <Button
+        android:id="@+id/pitScoutButton"
+        android:layout_width="450dp"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:layout_alignLeft="@+id/offlineDataButton"
+        android:layout_below="@+id/scoutMatchButton"
+        android:layout_marginTop="150dp"
+        android:gravity="center"
+        android:text="Pit Scouting" />
+
+</RelativeLayout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="#222222">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:text="Please Select the Bluetooth Device Below That is Running the Scouting Server"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="32dp" 
+        android:textColor="#FFFFFF"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="21dp"
+        android:text="Paired Devices"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ListView
+        android:id="@+id/pairedDevicesView"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_above="@+id/textView3"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView2"
+        android:textColor="#FFFFFF" >
+
+    </ListView>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:text="Discovered Devices"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ListView
+        android:id="@+id/discoveredDevicesView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_above="@+id/scanForDevices"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView3"
+        android:textColor="#FFFFFF" >
+
+    </ListView>
+
+    <ProgressBar
+        android:id="@+id/scanningProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignParentRight="true"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/scanningText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_toLeftOf="@+id/scanningProgressBar"
+        android:text="Scanning..."
+        android:visibility="gone"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/scanForDevices"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="Scan For Devices"
+        android:textColor="#FFFFFF" />
+
+</RelativeLayout>

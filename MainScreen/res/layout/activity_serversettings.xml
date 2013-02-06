@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="#222222">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical" >
+
+       <TextView
+           android:id="@+id/textView1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_alignParentTop="true"
+           android:gravity="center"
+           android:text="Please Select Scouting Server"
+           android:textAppearance="?android:attr/textAppearanceLarge"
+           android:textColor="#FFFFFF"
+           android:textSize="20dp" />
+
+       <TextView
+           android:id="@+id/textView2"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_below="@+id/textView1"
+           android:layout_marginTop="21dp"
+           android:text="Paired Devices"
+           android:textAppearance="?android:attr/textAppearanceLarge"
+           android:textColor="#FFFFFF"
+           android:textStyle="bold" />
+
+       <ListView
+           android:id="@+id/pairedDevicesView"
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:layout_alignParentLeft="true"
+           android:layout_below="@+id/textView2"
+           android:layout_weight="0.50"
+           android:cacheColorHint="#00000000"
+           android:textColor="#FFFFFF" >
+
+       </ListView>
+
+       <TextView
+           android:id="@+id/textView3"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_centerVertical="true"
+           android:text="Discovered Devices"
+           android:textAppearance="?android:attr/textAppearanceLarge"
+           android:textColor="#FFFFFF"
+           android:textStyle="bold" />
+
+       <ListView
+           android:id="@+id/discoveredDevicesView"
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:layout_alignParentLeft="true"
+           android:layout_below="@+id/textView3"
+           android:textColor="#FFFFFF" 
+           android:cacheColorHint="#00000000">
+       </ListView>
+
+       <Button
+           android:id="@+id/scanForDevices"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/discoveredDevicesView"
+           android:layout_centerHorizontal="true"
+           android:text="Scan For Devices"
+           android:textColor="#000000" />
+
+       <ProgressBar
+           android:id="@+id/scanningProgressBar"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignBottom="@+id/textView3"
+           android:layout_alignParentRight="true"
+           android:visibility="gone" />
+
+       <TextView
+           android:id="@+id/scanningText"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignTop="@+id/textView3"
+           android:layout_toLeftOf="@+id/scanningProgressBar"
+           android:text="Scanning..."
+           android:textAppearance="?android:attr/textAppearanceMedium"
+           android:textColor="#FFFFFF"
+           android:visibility="gone" />
+   </LinearLayout>
+</LinearLayout>

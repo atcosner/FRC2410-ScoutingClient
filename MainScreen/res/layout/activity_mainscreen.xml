@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#222222">
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:text="2013 Ultimate Ascent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="32dp"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FIRST Scouting App"
+                android:textColor="#FFFFFF"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="32dp"
+                android:gravity="center"
+                android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:text="Brought to you by FRC Team 2410"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:text="BV CAPS Metal Mustangs Robotics"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/scoutMatchButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="@string/scoutTeam"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/pitScoutButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="Pit Scouting"
+        android:textColor="#000000" />
+    
+    <Button
+        android:id="@+id/offlineDataButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:text="View Offline Data" />
+    
+
+</LinearLayout>

@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        tools:context=".FieldsForm"
+        android:background="#222222" >
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="1600dp"
+    android:background="#222222" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Team Number"
+        android:textColor="#FFFFFF"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/teamNumberPitReview"
+        android:layout_width="150dp"
+        android:enabled="false"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:ems="10"
+        android:inputType="number" >
+
+        <requestFocus />
+        <requestFocus />
+
+    </EditText>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/teamNumberPitReview"
+        android:text="Team Name"
+        android:textColor="#FFFFFF"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/teamNamePitReview"
+        android:layout_width="wrap_content"
+        android:enabled="false"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/teamNumberPitReview"
+        android:layout_alignTop="@+id/textView2"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/teamNamePitReview"
+        android:text="Strategy"
+        android:textColor="#FFFFFF"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/strategyPitReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView3"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/strategyPitReview"
+        android:layout_marginTop="21dp"
+        android:text="Shooter"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp" />
+
+    <CheckBox
+        android:id="@+id/shooterCheckBoxPitReview"
+        android:checked="true"
+        android:enabled="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView4"
+        android:layout_toRightOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/shooterCheckBoxPitReview"
+        android:text="Description:"
+        android:textColor="#FFFFFF"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/shooterDescriptionPitReview"
+        android:layout_width="150dp"
+        android:enabled="false"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView5"
+        android:layout_alignBottom="@+id/textView5"
+        android:layout_alignParentRight="true"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/shooterSpeedPitReview"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/shooterDescriptionPitReview"
+        android:layout_marginTop="9dp"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/shooterSpeedPitReview"
+        android:layout_alignBottom="@+id/shooterSpeedPitReview"
+        android:layout_alignParentLeft="true"
+        android:text="Speed (Final):"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF" />
+
+    <EditText
+        android:id="@+id/shooterAnglePitReview"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/shooterSpeedPitReview"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/shooterAnglePitReview"
+        android:layout_alignBottom="@+id/shooterAnglePitReview"
+        android:layout_alignParentLeft="true"
+        android:text="Angle: "
+        android:textColor="#FFFFFF"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <CheckBox
+        android:id="@+id/adjustableShooterPitReview"
+        android:layout_width="wrap_content"
+        android:enabled="false"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/shooterAnglePitReview"
+        android:layout_below="@+id/shooterAnglePitReview" />
+
+    <CheckBox
+        android:id="@+id/shooterFloorPickUpPitReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:layout_alignLeft="@+id/adjustableShooterPitReview"
+        android:layout_below="@+id/textView8"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/adjustableShooterPitReview"
+        android:layout_alignBottom="@+id/adjustableShooterPitReview"
+        android:layout_alignParentLeft="true"
+        android:text="Adjustable"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/shooterFloorPickUpPitReview"
+        android:layout_alignBottom="@+id/shooterFloorPickUpPitReview"
+        android:layout_alignParentLeft="true"
+        android:text="Floor Pick Up"
+        android:textColor="#FFFFFF"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/shooterFloorPickUpPitReview"
+        android:text="System Speed"
+        android:textColor="#FFFFFF"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/shooterSystemSpeedPitReview"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:layout_alignBaseline="@+id/textView10"
+        android:layout_alignBottom="@+id/textView10"
+        android:layout_alignParentRight="true"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/shooterSystemSpeedPitReview"
+        android:layout_marginTop="35dp"
+        android:text="Drivetrain"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/drivetrainDesciptionPitReview"
+        android:layout_width="150dp"
+        android:enabled="false"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView12"
+        android:layout_alignBottom="@+id/textView12"
+        android:layout_alignParentRight="true"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/drivetrainWheelsPitReview"
+        android:layout_width="150dp"
+        android:enabled="false"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/drivetrainDesciptionPitReview"
+        android:layout_marginTop="5dp"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/drivetrainWheelsPitReview"
+        android:layout_alignBottom="@+id/drivetrainWheelsPitReview"
+        android:layout_alignParentLeft="true"
+        android:text="Wheels: "
+        android:textColor="#FFFFFF"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/drivetrainSpeedPitReview"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/drivetrainWheelsPitReview"
+        android:layout_marginTop="1dp"
+        android:ems="10"
+        android:enabled="false"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/drivetrainSpeedPitReview"
+        android:layout_alignBottom="@+id/drivetrainSpeedPitReview"
+        android:layout_alignParentLeft="true"
+        android:text="Speed: "
+        android:textColor="#FFFFFF"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/drivetrainSpecialPitReview"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:enabled="false"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/drivetrainSpeedPitReview"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/drivetrainSpecialPitReview"
+        android:layout_alignBottom="@+id/drivetrainSpecialPitReview"
+        android:layout_alignParentLeft="true"
+        android:text="Special: "
+        android:textColor="#FFFFFF"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView11"
+        android:layout_marginTop="10dp"
+        android:text="Description: "
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/drivetrainSpecialPitReview"
+        android:layout_marginTop="16dp"
+        android:text="Climbing"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <CheckBox
+        android:id="@+id/climbingCheckBoxPitReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:layout_alignBottom="@+id/textView16"
+        android:layout_toRightOf="@+id/textView16"
+        android:text="" />
+
+    <EditText
+        android:id="@+id/climbingSpeedPitReview"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/climbingCheckBoxPitReview"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/climbingSpeedPitReview"
+        android:layout_alignBottom="@+id/climbingSpeedPitReview"
+        android:layout_alignParentLeft="true"
+        android:text="Speed: "
+        android:textColor="#FFFFFF"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/climbingHighestLevelReview"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/climbingSpeedPitReview"
+        android:layout_marginTop="1dp"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/climbingHighestLevelReview"
+        android:layout_alignBottom="@+id/climbingHighestLevelReview"
+        android:layout_alignParentLeft="true"
+        android:text="Highest Level: "
+        android:textColor="#FFFFFF"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <CheckBox
+        android:id="@+id/climbingSidePitReview"
+        android:layout_width="wrap_content"
+        android:enabled="false"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/climbingHighestLevelReview"
+        android:layout_toRightOf="@+id/climbingCheckBoxPitReview"
+        android:text="Side"
+        android:textColor="#FFFFFF" />
+
+    <CheckBox
+        android:id="@+id/climbingCornerPitReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:layout_alignBaseline="@+id/climbingSidePitReview"
+        android:layout_alignBottom="@+id/climbingSidePitReview"
+        android:layout_alignParentRight="true"
+        android:text="Corner"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/climbingSidePitReview"
+        android:layout_alignParentLeft="true"
+        android:text="Can Climb Up:"
+        android:textColor="#FFFFFF"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView19"
+        android:layout_marginTop="59dp"
+        android:text="Autonomous"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <CheckBox
+        android:id="@+id/autonomousPitReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView20"
+        android:enabled="false"
+        android:layout_toRightOf="@+id/textView20"
+        android:text="" />
+
+    <EditText
+        android:id="@+id/autonomousPlacementPitReview"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/autonomousPitReview"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/autonomousPlacementPitReview"
+        android:layout_alignBottom="@+id/autonomousPlacementPitReview"
+        android:layout_alignParentLeft="true"
+        android:text="Placement: "
+        android:textColor="#FFFFFF"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/autonomousNumPreloadedPitReview"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/autonomousPlacementPitReview"
+        android:layout_marginTop="1dp"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/autonomousNumPreloadedPitReview"
+        android:layout_alignBottom="@+id/autonomousNumPreloadedPitReview"
+        android:layout_alignParentLeft="true"
+        android:text="# Preloaded"
+        android:textColor="#FFFFFF"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/autonomousLevelAimedPitReview"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/autonomousNumPreloadedPitReview"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/autonomousLevelAimedPitReview"
+        android:layout_alignBottom="@+id/autonomousLevelAimedPitReview"
+        android:layout_alignParentLeft="true"
+        android:text="Level Aimed"
+        android:textColor="#FFFFFF"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <CheckBox
+        android:id="@+id/autonomousFloorPickupPitReview"
+        android:layout_width="wrap_content"
+        android:enabled="false"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/shooterFloorPickUpPitReview"
+        android:layout_below="@+id/autonomousLevelAimedPitReview"
+        android:textColor="#FFFFFF"
+        android:text="Floor Pickup" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/autonomousFloorPickupPitReview"
+        android:layout_marginTop="33dp"
+        android:text="Misc."
+        android:textColor="#FFFFFF"
+        android:textSize="30dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView24"
+        android:text="Trip Time (Last Score to Last Score)"
+        android:textColor="#FFFFFF"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/miscTripTimePitReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView25"
+        android:ems="10"
+        android:inputType="number" />
+
+    <CheckBox
+        android:id="@+id/miscAbleToDefendPitReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:enabled="false"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/miscTripTimePitReview"
+        android:text="Able to Defend" />
+
+    <CheckBox
+        android:id="@+id/miscColoredDiscsPitReview"
+        android:layout_width="wrap_content"
+        android:textColor="#FFFFFF"
+        android:enabled="false"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/miscTripTimePitReview"
+        android:text="Colored Discs" />
+
+    <CheckBox
+        android:id="@+id/miscVisionTargetingReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:layout_below="@+id/miscAbleToDefendPitReview"
+        android:layout_toLeftOf="@+id/climbingCornerPitReview"
+        android:text="Vision Targeting"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/miscVisionTargetingReview"
+        android:text="Estimated Score"
+        android:textColor="#FFFFFF"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/miscEstimatedScoreReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:enabled="false"
+        android:layout_below="@+id/textView27"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/miscEstimatedScoreReview"
+        android:text="Maintenance Time"
+        android:textColor="#FFFFFF"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/miscMaintenanceTimePitReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView26"
+        android:ems="10"
+        android:enabled="false"
+        android:inputType="number" >
+    </EditText>
+
+    <Button
+        android:id="@+id/goBackButtonPitReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/miscMaintenanceTimePitReview"
+        android:text="Back"
+        android:textColor="#000000" />
+
+</RelativeLayout>
+
+</ScrollView>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#222222">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/onlineButton"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFFFFF"
+        android:gravity = "center"
+        android:text="(Scout Online with A Scouting Server)"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFFFFF"
+        android:gravity = "center"
+        android:text="Choose this option if you are running a Scouting Server and would like to transmit your collected data to the Server!"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/offlineButton"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFFFFF"
+        android:gravity = "center"
+        android:text="(Scout Offline and Save your Results to this Device)"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:textColor="#FFFFFF"
+        android:gravity = "center"
+        android:layout_centerHorizontal="true"
+        android:text="Choose this option if you would like to scout without a scouting Server and would like to save your results to this device!"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Please Select A Client Mode Below"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/onlineButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="28dp"
+        android:text="Online Scouting" />
+
+    <Button
+        android:id="@+id/offlineButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="88dp"
+        android:text="Offline Scouting" />
+
+</RelativeLayout>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.frc2410.scoutingapplication"
+    android:versionCode="5"
+    android:versionName="1.4" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+    
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/frc_launcher_v3"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.frc2410.scoutingapplication.MainScreen"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+        android:name="com.frc2410.scoutingapplication.ClientSettings"
+        android:label="@string/app_name" 
+        android:screenOrientation="portrait">
+    	</activity>
+    	
+    	<activity
+        android:name="com.frc2410.scoutingapplication.FieldsForm"
+        android:label="@string/data_name"
+        android:screenOrientation="portrait">
+    	</activity>
+    	
+    	<activity
+        android:name="com.frc2410.scoutingapplication.PitScouting"
+        android:label="@string/app_name"
+        android:screenOrientation="portrait">
+    	</activity>
+    	
+    	<activity
+        android:name="com.frc2410.scoutingapplication.ServerLink"
+        android:label="@string/app_name"
+        android:screenOrientation="portrait">
+    	</activity>
+    	
+    	<activity
+        android:name="com.frc2410.scoutingapplication.ServerSettings"
+        android:label="@string/app_name"
+        android:screenOrientation="portrait">
+    	</activity>
+    	
+    	<activity
+        android:name="com.frc2410.scoutingapplication.OfflineData"
+        android:label="@string/app_name"
+        android:screenOrientation="portrait">
+    	</activity>
+    	
+    	<activity
+        android:name="com.frc2410.scoutingapplication.ViewSavedMatch"
+        android:label="@string/app_name"
+        android:screenOrientation="portrait">
+    	</activity>
+    	
+    	<activity
+        android:name="com.frc2410.scoutingapplication.ViewSavedPit"
+        android:label="@string/app_name"
+        android:screenOrientation="portrait">
+    	</activity>
+    </application>
+
+</manifest>
