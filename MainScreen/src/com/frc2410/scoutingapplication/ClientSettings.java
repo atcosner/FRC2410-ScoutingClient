@@ -39,7 +39,6 @@ public class ClientSettings extends Activity
         {
             public void onClick(View v) 
             {
-            	/*
             	//Inform User of Non Function
             	AlertDialog.Builder builder = new AlertDialog.Builder(ClientSettings.this);
             	builder.setCancelable(false);
@@ -53,10 +52,11 @@ public class ClientSettings extends Activity
 					}
 				});
             	builder.show();
-            	*/
+            	/*
             	//Start Server Config
             	Intent intent = new Intent(ClientSettings.this, ServerSettings.class);
             	startActivity(intent);
+			*/
             }
         });
         
