@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" 
-    android:background="#222222">
+    android:layout_height="match_parent"
+    android:background="#222222" >
 
     <TextView
         android:id="@+id/textView1"
@@ -13,9 +13,9 @@
         android:gravity="center"
         android:text="Please Select the Bluetooth Device Below That is Running the Scouting Server"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="32dp" 
-        android:textColor="#FFFFFF"/>
-
+        android:textColor="#FFFFFF"
+        android:textSize="32dp" />
+    
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -24,66 +24,48 @@
         android:layout_below="@+id/textView1"
         android:layout_marginTop="21dp"
         android:text="Paired Devices"
-        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#FFFFFF"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textStyle="bold" />
 
     <ListView
         android:id="@+id/pairedDevicesView"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_alignParentLeft="true"
-        android:textColor="#FFFFFF"
-        android:layout_below="@+id/textView2" >
-    </ListView>
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:text="Discovered Devices"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <ListView
-        android:id="@+id/discoveredDevicesView"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:textColor="#FFFFFF"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView3" >
+        android:layout_below="@+id/textView2"
+        android:textColor="#FFFFFF" >
     </ListView>
 
     <ProgressBar
         android:id="@+id/scanningProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView3"
         android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:visibility="gone" />
 
     <TextView
         android:id="@+id/scanningText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView3"
+        android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/scanningProgressBar"
         android:text="Scanning..."
-        android:visibility="gone"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:visibility="gone" />
 
-    <Button
-        android:id="@+id/scanForDevices"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginBottom="20dp"
-        android:text="Scan For Devices"
-        android:textColor="#FFFFFF" />
+        android:layout_marginBottom="168dp"
+        android:text="If you do not see your device on this list, please exit the app and pair your device with your computer before proceeding"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF"
+        android:textSize="32dp" />
 
 </RelativeLayout>

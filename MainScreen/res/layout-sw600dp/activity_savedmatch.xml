@@ -1,370 +1,59 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#222222" >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        tools:context=".FieldsForm"
+        android:background="#C0C0C0" >
 
-    <TextView
-        android:id="@+id/commentsFieldReview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/additionalCommentsFieldReview"
-        android:layout_alignLeft="@+id/additionalCommentsFieldReview"
-        android:text="Additional Comments"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="1825dp"
+    android:background="#C0C0C0" >
 
     <EditText
-        android:id="@+id/movementFieldReview"
-        android:layout_width="525dp"
-        android:layout_height="75dp"
-        android:layout_above="@+id/commentsFieldReview"
-        android:layout_alignLeft="@+id/commentsFieldReview"
-        android:layout_marginBottom="29dp"
-        android:clickable="false"
-        android:cursorVisible="false"
+        android:id="@+id/matchNumberFieldReview"
+        android:layout_width="155dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="25dp"
+        android:layout_toRightOf="@+id/textView1"
         android:ems="10"
+        android:inputType="number" 
         android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:inputType="textMultiLine"
-        android:singleLine="false"
-        android:textColor="#FFFFFF" />
+        android:focusableInTouchMode="false"/>
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/movementFieldReview"
-        android:layout_alignLeft="@+id/movementFieldReview"
-        android:text="Describe Movement"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
-
-    <Button
-        android:id="@+id/goBackButtonReview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignBaseline="@+id/matchNumberFieldReview"
+        android:layout_alignBottom="@+id/matchNumberFieldReview"
         android:layout_alignParentLeft="true"
-        android:text="Back"
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/teamNumberField1Review"
-        android:text="Alliance Color"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/teamNumberField1Review"
-        android:layout_alignBottom="@+id/teamNumberField1Review"
-        android:layout_alignRight="@+id/textView5"
-        android:text="Team #"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/matchNumberField1Review"
-        android:layout_alignBottom="@+id/matchNumberField1Review"
-        android:layout_alignRight="@+id/textView3"
         android:text="Match #"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/teamNumberField1Review"
-        android:layout_width="155dp"
+        android:id="@+id/teamNumberFieldReview"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/matchNumberField1Review"
-        android:layout_toRightOf="@+id/textView5"
-        android:clickable="false"
-        android:cursorVisible="false"
+        android:layout_alignLeft="@+id/matchNumberFieldReview"
+        android:layout_alignRight="@+id/matchNumberFieldReview"
+        android:layout_below="@+id/matchNumberFieldReview"
         android:ems="10"
+        android:inputType="number" 
         android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:inputType="number"
-        android:textColor="#FFFFFF" />
-
-    <EditText
-        android:id="@+id/matchNumberField1Review"
-        android:layout_width="155dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/teamNumberField1Review"
-        android:layout_alignParentTop="true"
-        android:clickable="false"
-        android:cursorVisible="false"
-        android:ems="10"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:inputType="number"
-        android:textColor="#FFFFFF" />
+        android:focusableInTouchMode="false"/>
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/matchNumberField1Review"
-        android:layout_alignBottom="@+id/matchNumberField1Review"
-        android:layout_toRightOf="@+id/matchNumberField1Review"
-        android:text="Points Scored"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
-
-    <RadioGroup
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/scoreGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView5"
-        android:layout_marginTop="37dp"
-        android:layout_toRightOf="@+id/textView6"
-        android:orientation="vertical" >
-
-        <RadioButton
-            android:id="@+id/canScoreReview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:clickable="false"
-            android:text="Can Score"
-            android:textColor="#FFFFFF" />
-
-        <RadioButton
-            android:id="@+id/cannotScoreReview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left|top"
-            android:layout_row="4"
-            android:clickable="false"
-            android:text="Cannot Score"
-            android:textColor="#FFFFFF" />
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/scoreGroup"
-        android:layout_alignLeft="@+id/textView7"
-        android:text="Can score on:"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#FFFFFF" />
-
-    <CheckBox
-        android:id="@+id/onePointCheckBoxReview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/teamNumberFieldReview"
+        android:layout_alignBottom="@+id/teamNumberFieldReview"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView8"
-        android:layout_marginTop="23dp"
-        android:clickable="false"
-        android:text="1 Point Goal"
-        android:textColor="#FFFFFF" />
-
-    <EditText
-        android:id="@+id/allianceScoreFieldReview"
-        android:layout_width="155dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/teamScoreFieldReview"
-        android:clickable="false"
-        android:cursorVisible="false"
-        android:ems="10"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:inputType="number"
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/allianceScoreFieldReview"
-        android:layout_alignBottom="@+id/allianceScoreFieldReview"
-        android:layout_alignLeft="@+id/textView13"
-        android:text="Alliance Score"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_below="@+id/teamNumberField1Review"
-        android:text="Penalties"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView14"
-        android:layout_below="@+id/fivePointCheckBoxReview"
-        android:layout_marginTop="22dp"
-        android:text="Climbing"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
-
-    <CheckBox
-        android:id="@+id/fivePointCheckBoxReview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/twoPointCheckBoxReview"
-        android:layout_alignBottom="@+id/twoPointCheckBoxReview"
-        android:layout_alignParentRight="true"
-        android:clickable="false"
-        android:text="5 Point Goal"
-        android:textColor="#FFFFFF" />
-
-    <CheckBox
-        android:id="@+id/threePointCheckBoxReview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/fivePointCheckBoxReview"
-        android:layout_alignBottom="@+id/fivePointCheckBoxReview"
-        android:layout_toLeftOf="@+id/allianceScoreFieldReview"
-        android:clickable="false"
-        android:text="3 Point Goal"
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView9"
-        android:layout_below="@+id/textView9"
-        android:layout_marginTop="26dp"
-        android:text="Can Climb To:"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#FFFFFF" />
-
-    <CheckBox
-        android:id="@+id/twoPointCheckBoxReview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/onePointCheckBoxReview"
-        android:layout_alignBottom="@+id/onePointCheckBoxReview"
-        android:layout_toRightOf="@+id/textView8"
-        android:clickable="false"
-        android:text="2 Point Goal"
-        android:textColor="#FFFFFF" />
-
-    <CheckBox
-        android:id="@+id/level1ClimbCheckBoxReview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/onePointCheckBoxReview"
-        android:layout_below="@+id/textView10"
-        android:layout_marginTop="24dp"
-        android:clickable="false"
-        android:text="Level 1"
-        android:textColor="#FFFFFF" />
-
-    <RadioGroup
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/climbGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/scoreGroup"
-        android:layout_alignTop="@+id/textView9"
-        android:orientation="vertical" >
-
-        <RadioButton
-            android:id="@+id/canClimbReview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:clickable="false"
-            android:text="Can Climb"
-            android:textColor="#FFFFFF" />
-
-        <RadioButton
-            android:id="@+id/cannotClimbReview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left|top"
-            android:layout_row="4"
-            android:clickable="false"
-            android:text="Cannot Climb"
-            android:textColor="#FFFFFF" />
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView11"
-        android:layout_alignBottom="@+id/textView11"
-        android:layout_toRightOf="@+id/level1ClimbCheckBoxReview"
-        android:text="Features"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
-
-    <CheckBox
-        android:id="@+id/climbAssistCheckBoxReview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/defenseCheckBoxReview"
-        android:layout_alignBottom="@+id/defenseCheckBoxReview"
-        android:layout_toRightOf="@+id/textView1"
-        android:clickable="false"
-        android:text="Climb Assist"
-        android:textColor="#FFFFFF" />
-
-    <CheckBox
-        android:id="@+id/humanPlayerCheckBoxReview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/climbAssistCheckBoxReview"
-        android:layout_alignBottom="@+id/climbAssistCheckBoxReview"
-        android:layout_alignParentRight="true"
-        android:clickable="false"
-        android:text="Scoring Human Player"
-        android:textColor="#FFFFFF" />
-
-    <CheckBox
-        android:id="@+id/level3ClimbCheckBoxReview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/level2ClimbCheckBoxReview"
-        android:layout_alignBottom="@+id/level2ClimbCheckBoxReview"
-        android:layout_alignRight="@+id/movementFieldReview"
-        android:clickable="false"
-        android:text="Level 3"
-        android:textColor="#FFFFFF" />
-
-    <CheckBox
-        android:id="@+id/level2ClimbCheckBoxReview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/level1ClimbCheckBoxReview"
-        android:layout_alignBottom="@+id/level1ClimbCheckBoxReview"
-        android:layout_centerHorizontal="true"
-        android:clickable="false"
-        android:text="Level 2"
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_alignTop="@+id/scoreGroup"
-        android:text="Scoring"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
+        android:text="Team #"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
         android:id="@+id/teamScoreFieldReview"
@@ -372,79 +61,1031 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:clickable="false"
-        android:cursorVisible="false"
         android:ems="10"
+        android:inputType="number" 
         android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:inputType="number"
-        android:textColor="#FFFFFF" />
-
-    <EditText
-        android:id="@+id/penaltiesFieldReview"
-        android:layout_width="155dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/textView6"
-        android:clickable="false"
-        android:cursorVisible="false"
-        android:ems="10"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:inputType="number"
-        android:textColor="#FFFFFF" />
-
-    <EditText
-        android:id="@+id/allianceColorFieldReview"
-        android:layout_width="155dp"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView5"
-        android:layout_toRightOf="@+id/textView5"
-        android:clickable="false"
-        android:cursorVisible="false"
-        android:ems="10"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:textColor="#FFFFFF" />
+        android:focusableInTouchMode="false"/>
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/level1ClimbCheckBoxReview"
-        android:layout_below="@+id/level1ClimbCheckBoxReview"
-        android:layout_marginTop="25dp"
-        android:text="Special"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
-
-    <CheckBox
-        android:id="@+id/defenseCheckBoxReview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView5"
-        android:layout_below="@+id/textView12"
-        android:layout_marginTop="15dp"
-        android:clickable="false"
-        android:text="Defense"
-        android:textColor="#FFFFFF" />
+        android:layout_alignBaseline="@+id/teamScoreFieldReview"
+        android:layout_alignBottom="@+id/teamScoreFieldReview"
+        android:layout_toLeftOf="@+id/teamScoreFieldReview"
+        android:text="Team Score"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/additionalCommentsFieldReview"
-        android:layout_width="525dp"
-        android:layout_height="75dp"
-        android:layout_above="@+id/goBackButtonReview"
-        android:layout_alignLeft="@+id/textView11"
-        android:layout_marginBottom="17dp"
-        android:clickable="false"
-        android:cursorVisible="false"
+        android:id="@+id/allianceScoreFieldReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/teamScoreFieldReview"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/teamScoreFieldReview"
         android:ems="10"
+        android:inputType="number" 
         android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:inputType="textMultiLine"
-        android:textColor="#FFFFFF" >
+        android:focusableInTouchMode="false"/>
 
-        <requestFocus />
-    </EditText>
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/allianceScoreFieldReview"
+        android:layout_alignBottom="@+id/allianceScoreFieldReview"
+        android:layout_toLeftOf="@+id/allianceScoreFieldReview"
+        android:text="Alliance Score"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/teamNumberFieldReview"
+        android:text="Alliance"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView5"
+        android:text="Color"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/allianceScoreFieldReview"
+        android:text="Total Team Penalties"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/teamPenaltiesFieldReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView7"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/textView6"
+        android:ems="10"
+        android:inputType="number" 
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/teamPenaltiesFieldReview"
+        android:text="Total Alliance Penalties"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/alliancePenaltiesFieldReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/teamPenaltiesFieldReview"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView8"
+        android:ems="10"
+        android:inputType="number" 
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/alliancePenaltiesFieldReview"
+        android:layout_marginTop="48dp"
+        android:text="Shooting"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/shooterTeamPenaltiesReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/shootGroupReview"
+            android:ems="10"
+            android:inputType="number" 
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/shooterTeamPenaltiesReview"
+            android:layout_alignBottom="@+id/shooterTeamPenaltiesReview"
+            android:layout_toLeftOf="@+id/shooterTeamPenaltiesReview"
+            android:text="Team Penalties"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/shooterAlliancePenaltiesReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/shooterTeamPenaltiesReview"
+            android:ems="10"
+            android:inputType="number"
+            android:focusable="false"
+            android:focusableInTouchMode="false" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/shooterAlliancePenaltiesReview"
+            android:layout_alignBottom="@+id/shooterAlliancePenaltiesReview"
+            android:layout_toLeftOf="@+id/shooterAlliancePenaltiesReview"
+            android:text="Alliance Penalties"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <RadioGroup
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/shootGroupReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView9"
+            android:orientation="vertical" 
+            android:enabled="false">
+
+            <RadioButton
+                android:id="@+id/canShootReview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Can Shoot"
+                android:textColor="#000000"
+                android:enabled="false" />
+
+            <RadioButton
+                android:id="@+id/cannotShootReview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|top"
+                android:text="Cannot Shoot"
+                android:textColor="#000000"
+                android:enabled="false" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView11"
+            android:text="Can Shoot on:"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <EditText
+            android:id="@+id/onePointGoalShotsMadeReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView13"
+            android:layout_alignBottom="@+id/textView13"
+            android:layout_alignLeft="@+id/onePointCheckBoxReview"
+            android:layout_toLeftOf="@+id/alliancePenaltiesFieldReview"
+            android:ems="10"
+            android:inputType="number" 
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/onePointGoalShotsTakenReview"
+            android:layout_alignBottom="@+id/onePointGoalShotsTakenReview"
+            android:layout_alignParentLeft="true"
+            android:text="Shots Taken Per Goal"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/onePointCheckBoxReview"
+            android:text="Shots Made Per Goal"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/twoPointGoalShotsMadeReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/twoPointCheckBoxReview"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/twoPointCheckBoxReview"
+            android:ems="10"
+            android:inputType="number" 
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
+
+        <CheckBox
+            android:id="@+id/twoPointCheckBoxReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textView13"
+            android:layout_alignParentRight="true"
+            android:text="2 Point Goal" 
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:enabled="false"/>
+
+        <CheckBox
+            android:id="@+id/onePointCheckBoxReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textView12"
+            android:layout_toLeftOf="@+id/shooterAlliancePenaltiesReview"
+            android:text="1 Point Goal" 
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:enabled="false"/>
+
+        <EditText
+            android:id="@+id/twoPointGoalShotsTakenReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/twoPointGoalShotsMadeReview"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/twoPointGoalShotsMadeReview"
+            android:ems="10"
+            android:inputType="number"
+            android:focusable="false"
+            android:focusableInTouchMode="false" />
+
+        <EditText
+            android:id="@+id/onePointGoalShotsTakenReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/twoPointGoalShotsTakenReview"
+            android:layout_alignBottom="@+id/twoPointGoalShotsTakenReview"
+            android:layout_alignLeft="@+id/onePointGoalShotsMadeReview"
+            android:layout_toLeftOf="@+id/alliancePenaltiesFieldReview"
+            android:ems="10"
+            android:inputType="number"
+            android:focusable="false"
+            android:focusableInTouchMode="false" />
+
+        <CheckBox
+            android:id="@+id/fivePointGoalReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/threePointGoalReview"
+            android:layout_alignBottom="@+id/threePointGoalReview"
+            android:layout_alignParentRight="true"
+            android:text="5 Point Goal" 
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:enabled="false"/>
+
+        <CheckBox
+            android:id="@+id/threePointGoalReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/onePointGoalShotsTakenReview"
+            android:layout_below="@+id/onePointGoalShotsTakenReview"
+            android:layout_marginTop="10dp"
+            android:text="3 Point Goal" 
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:enabled="false"/>
+
+        <EditText
+            android:id="@+id/threePointGoalShotsMadeReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/onePointGoalShotsTakenReview"
+            android:layout_alignRight="@+id/threePointGoalReview"
+            android:layout_below="@+id/threePointGoalReview"
+            android:ems="10"
+            android:inputType="number"
+            android:focusable="false"
+            android:focusableInTouchMode="false" />
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/threePointGoalShotsMadeReview"
+            android:layout_alignBottom="@+id/threePointGoalShotsMadeReview"
+            android:layout_alignParentLeft="true"
+            android:text="Shots Made Per Goal"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/threePointGoalShotsTakenReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/threePointGoalShotsMadeReview"
+            android:layout_alignRight="@+id/threePointGoalShotsMadeReview"
+            android:layout_below="@+id/threePointGoalShotsMadeReview"
+            android:ems="10"
+            android:inputType="number"
+            android:focusable="false"
+            android:focusableInTouchMode="false" />
+
+        <TextView
+            android:id="@+id/TextView02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/threePointGoalShotsTakenReview"
+            android:layout_alignBottom="@+id/threePointGoalShotsTakenReview"
+            android:layout_alignParentLeft="true"
+            android:text="Shots Taken Per Goal"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/fivePointGoalShotsMadeReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/threePointGoalShotsMadeReview"
+            android:layout_alignBottom="@+id/threePointGoalShotsMadeReview"
+            android:layout_alignLeft="@+id/fivePointGoalReview"
+            android:layout_alignParentRight="true"
+            android:ems="10"
+            android:inputType="number" 
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
+
+        <EditText
+            android:id="@+id/fivePointGoalShotsTakenReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/fivePointGoalShotsMadeReview"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/fivePointGoalShotsMadeReview"
+            android:ems="10"
+            android:inputType="number"
+            android:focusable="false"
+            android:focusableInTouchMode="false" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/threePointGoalShotsTakenReview"
+            android:layout_marginTop="72dp"
+            android:text="Climbing"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+     <RadioGroup
+         xmlns:android="http://schemas.android.com/apk/res/android"
+         android:id="@+id/climbGroupReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/textView15"
+         android:orientation="vertical"
+         android:focusable="false"
+         android:focusableInTouchMode="false"
+         android:enabled="false" >
+
+         <RadioButton
+             android:id="@+id/canClimbReview"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:checked="true"
+             android:text="Can Climb"
+             android:textColor="#000000" 
+             android:focusable="false"
+             android:focusableInTouchMode="false"
+             android:enabled="false"/>
+
+         <RadioButton
+             android:id="@+id/cannotClimbReview"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="left|top"
+             android:text="Cannot Climb"
+             android:textColor="#000000" 
+             android:focusable="false"
+             android:focusableInTouchMode="false"
+             android:enabled="false"/>
+     </RadioGroup>
+
+     <TextView
+         android:id="@+id/textView16"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/climbGroupReview"
+         android:text="Can Climb To:"
+         android:textAppearance="?android:attr/textAppearanceSmall" />
+
+     <CheckBox
+         android:id="@+id/level1ClimbCheckBoxReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/textView16"
+         android:text="Level 1"
+         android:focusable="false"
+         android:focusableInTouchMode="false"
+         android:enabled="false" />
+
+     <CheckBox
+         android:id="@+id/level2ClimbCheckBoxReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/level1ClimbCheckBoxReview"
+         android:layout_alignBottom="@+id/level1ClimbCheckBoxReview"
+         android:layout_alignLeft="@+id/teamNumberFieldReview"
+         android:text="Level 2" 
+         android:focusable="false"
+         android:focusableInTouchMode="false"
+         android:enabled="false"/>
+
+     <CheckBox
+         android:id="@+id/level3ClimbCheckBoxReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/level1ClimbCheckBoxReview"
+         android:layout_toRightOf="@+id/textView6"
+         android:text="Level 3" 
+         android:focusable="false"
+         android:focusableInTouchMode="false"
+         android:enabled="false"/>
+
+     <EditText
+         android:id="@+id/sucessfulClimbsReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentRight="true"
+         android:layout_alignTop="@+id/textView15"
+         android:ems="10"
+         android:inputType="number" 
+         android:focusable="false"
+         android:focusableInTouchMode="false"/>
+
+     <TextView
+         android:id="@+id/textView17"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/sucessfulClimbsReview"
+         android:layout_alignBottom="@+id/sucessfulClimbsReview"
+         android:layout_toLeftOf="@+id/sucessfulClimbsReview"
+         android:text="Sucessful Climbs"
+         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+     <EditText
+         android:id="@+id/climbingTotalClimbAttemptsReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentRight="true"
+         android:layout_below="@+id/sucessfulClimbsReview"
+         android:ems="10"
+         android:inputType="number"
+         android:focusable="false"
+         android:focusableInTouchMode="false" />
+
+     <TextView
+         android:id="@+id/textView18"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/climbingTotalClimbAttemptsReview"
+         android:layout_alignBottom="@+id/climbingTotalClimbAttemptsReview"
+         android:layout_toLeftOf="@+id/climbingTotalClimbAttemptsReview"
+         android:text="Total Climb Attempts"
+         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+     <EditText
+         android:id="@+id/climbingTeamPenaltiesReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/allianceScoreFieldReview"
+         android:layout_alignParentRight="true"
+         android:layout_below="@+id/climbGroupReview"
+         android:ems="10"
+         android:inputType="number"
+         android:focusable="false"
+         android:focusableInTouchMode="false" />
+
+     <TextView
+         android:id="@+id/textView19"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/climbingTeamPenaltiesReview"
+         android:layout_alignBottom="@+id/climbingTeamPenaltiesReview"
+         android:layout_toLeftOf="@+id/climbingTeamPenaltiesReview"
+         android:text="Team Penalties"
+         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+     <EditText
+         android:id="@+id/climbingAlliancePenaltiesReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/climbingTeamPenaltiesReview"
+         android:layout_alignParentRight="true"
+         android:layout_below="@+id/climbingTeamPenaltiesReview"
+         android:ems="10"
+         android:inputType="number"
+         android:focusable="false"
+         android:focusableInTouchMode="false" />
+
+     <TextView
+         android:id="@+id/textView20"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/climbingAlliancePenaltiesReview"
+         android:layout_alignBottom="@+id/climbingAlliancePenaltiesReview"
+         android:layout_toLeftOf="@+id/climbingAlliancePenaltiesReview"
+         android:text="Alliance Penalties"
+         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+     <TextView
+         android:id="@+id/textView21"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/level3ClimbCheckBoxReview"
+         android:layout_marginTop="73dp"
+         android:text="Autonomous"
+         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+     <RadioGroup
+         xmlns:android="http://schemas.android.com/apk/res/android"
+         android:id="@+id/autonomousGroupReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/textView21"
+         android:orientation="vertical"
+         android:focusable="false"
+         android:focusableInTouchMode="false"
+         android:enabled="false" >
+
+         <RadioButton
+             android:id="@+id/hasAutonomousReview"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:checked="true"
+             android:text="Has Autonmous"
+             android:textColor="#000000"
+             android:focusable="false"
+             android:focusableInTouchMode="false"
+             android:enabled="false" />
+
+         <RadioButton
+             android:id="@+id/noAutonomousReview"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="left|top"
+             android:text="Does Not Have Autonomous"
+             android:textColor="#000000"
+             android:focusable="false"
+             android:focusableInTouchMode="false"
+             android:enabled="false" />
+     </RadioGroup>
+
+     <EditText
+         android:id="@+id/teamPenaltiesAutonomousReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/climbingAlliancePenaltiesReview"
+         android:layout_alignParentRight="true"
+         android:layout_alignTop="@+id/textView21"
+         android:ems="10"
+         android:inputType="number"
+         android:focusable="false"
+         android:focusableInTouchMode="false" />
+
+     <EditText
+         android:id="@+id/alliancePenaltiesAutonomousReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/teamPenaltiesAutonomousReview"
+         android:layout_alignParentRight="true"
+         android:layout_below="@+id/teamPenaltiesAutonomousReview"
+         android:ems="10"
+         android:inputType="number"
+         android:focusable="false"
+         android:focusableInTouchMode="false" />
+
+     <TextView
+         android:id="@+id/textView22"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/teamPenaltiesAutonomousReview"
+         android:layout_alignBottom="@+id/teamPenaltiesAutonomousReview"
+         android:layout_toLeftOf="@+id/teamPenaltiesAutonomousReview"
+         android:text="Team Penalties"
+         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+     <TextView
+         android:id="@+id/textView23"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/alliancePenaltiesAutonomousReview"
+         android:layout_alignBottom="@+id/alliancePenaltiesAutonomousReview"
+         android:layout_toLeftOf="@+id/alliancePenaltiesAutonomousReview"
+         android:text="Alliance Penalties"
+         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+     <TextView
+         android:id="@+id/textView24"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/autonomousGroupReview"
+         android:text="Shoots On:"
+         android:textAppearance="?android:attr/textAppearanceSmall" />
+
+     <TextView
+         android:id="@+id/textView25"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/textView24"
+         android:layout_marginTop="23dp"
+         android:text="Shots Made Per Goal"
+         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+     <CheckBox
+         android:id="@+id/onePointGoalAutonomousReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/textView23"
+         android:layout_alignTop="@+id/textView24"
+         android:text="1 Point Goal"
+         android:focusable="false"
+         android:focusableInTouchMode="false"
+         android:enabled="false" />
+
+     <EditText
+         android:id="@+id/onePointGoalShotsMadeAutonomousReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/textView25"
+         android:layout_alignBottom="@+id/textView25"
+         android:layout_alignLeft="@+id/onePointGoalAutonomousReview"
+         android:layout_alignRight="@+id/onePointGoalAutonomousReview"
+         android:ems="10"
+         android:inputType="number"
+         android:focusable="false"
+         android:focusableInTouchMode="false" />
+
+     <EditText
+         android:id="@+id/onePointGoalShotsTakenAutonomousReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/onePointGoalShotsMadeAutonomousReview"
+         android:layout_alignRight="@+id/onePointGoalShotsMadeAutonomousReview"
+         android:layout_below="@+id/onePointGoalShotsMadeAutonomousReview"
+         android:layout_marginTop="5dp"
+         android:ems="10"
+         android:inputType="number"
+         android:focusable="false"
+         android:focusableInTouchMode="false" />
+
+     <TextView
+         android:id="@+id/textView26"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/onePointGoalShotsTakenAutonomousReview"
+         android:layout_alignBottom="@+id/onePointGoalShotsTakenAutonomousReview"
+         android:layout_alignParentLeft="true"
+         android:text="Shots Taken Per Goal"
+         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+     <CheckBox
+         android:id="@+id/twoPointGoalAutonomousReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/onePointGoalAutonomousReview"
+         android:layout_alignBottom="@+id/onePointGoalAutonomousReview"
+         android:layout_alignParentRight="true"
+         android:text="2 Point Goal"
+         android:focusable="false"
+         android:focusableInTouchMode="false" 
+         android:enabled="false"/>
+
+     <EditText
+         android:id="@+id/twoPointGoalShotsMadeAutonomousReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/onePointGoalShotsMadeAutonomousReview"
+         android:layout_alignBottom="@+id/onePointGoalShotsMadeAutonomousReview"
+         android:layout_alignLeft="@+id/twoPointGoalAutonomousReview"
+         android:layout_alignParentRight="true"
+         android:ems="10"
+         android:inputType="number"
+         android:focusable="false"
+         android:focusableInTouchMode="false" />
+
+     <EditText
+         android:id="@+id/twoPointGoalShotsTakenAutonomousReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/twoPointGoalShotsMadeAutonomousReview"
+         android:layout_alignParentRight="true"
+         android:layout_below="@+id/twoPointGoalShotsMadeAutonomousReview"
+         android:ems="10"
+         android:layout_marginTop="5dp"
+         android:inputType="number"
+         android:focusable="false"
+         android:focusableInTouchMode="false" />
+
+     <CheckBox
+         android:id="@+id/threePointGoalAutonomousReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/threePointGoalReview"
+         android:layout_below="@+id/onePointGoalShotsTakenAutonomousReview"
+         android:layout_marginTop="15dp"
+         android:text="3 Point Goal"
+         android:focusable="false"
+         android:focusableInTouchMode="false"
+         android:enabled="false" />
+
+     <CheckBox
+         android:id="@+id/fivePointGoalAutonomousReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/threePointGoalAutonomousReview"
+         android:layout_alignBottom="@+id/threePointGoalAutonomousReview"
+         android:layout_alignParentRight="true"
+         android:text="5 Point Goal"
+         android:focusable="false"
+         android:focusableInTouchMode="false"
+         android:enabled="false" />
+
+     <EditText
+         android:id="@+id/threePointGoalShotsMadeAutonomousReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/onePointGoalShotsTakenAutonomousReview"
+         android:layout_alignRight="@+id/onePointGoalShotsTakenAutonomousReview"
+         android:layout_below="@+id/threePointGoalAutonomousReview"
+         android:ems="10"
+         android:inputType="number"
+         android:focusable="false"
+         android:focusableInTouchMode="false" />
+
+     <EditText
+         android:id="@+id/threePointGoalShotsTakenAutonomousReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/threePointGoalAutonomousReview"
+         android:layout_below="@+id/threePointGoalShotsMadeAutonomousReview"
+         android:layout_toLeftOf="@+id/alliancePenaltiesFieldReview"
+         android:ems="10"
+         android:inputType="number"
+         android:focusable="false"
+         android:focusableInTouchMode="false" />
+
+     <TextView
+         android:id="@+id/textView27"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/threePointGoalShotsMadeAutonomousReview"
+         android:layout_alignBottom="@+id/threePointGoalShotsMadeAutonomousReview"
+         android:layout_alignParentLeft="true"
+         android:text="Shots Made Per Goal"
+         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+     <TextView
+         android:id="@+id/textView28"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/threePointGoalShotsTakenAutonomousReview"
+         android:layout_alignBottom="@+id/threePointGoalShotsTakenAutonomousReview"
+         android:layout_alignParentLeft="true"
+         android:text="Shots Taken Per Goal"
+         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+     <EditText
+         android:id="@+id/fivePointGoalShotsMadeAutonomousReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/threePointGoalShotsTakenAutonomousReview"
+         android:layout_alignLeft="@+id/fivePointGoalAutonomousReview"
+         android:layout_alignParentRight="true"
+         android:ems="10"
+         android:inputType="number"
+         android:focusable="false"
+         android:focusableInTouchMode="false" />
+
+     <EditText
+         android:id="@+id/fivePointGoalShotsTakenAutonomousReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/fivePointGoalShotsMadeAutonomousReview"
+         android:layout_alignParentRight="true"
+         android:layout_below="@+id/fivePointGoalShotsMadeAutonomousReview"
+         android:ems="10"
+         android:inputType="number"
+         android:focusable="false"
+         android:focusableInTouchMode="false" />
+
+     <TextView
+         android:id="@+id/textView29"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/threePointGoalShotsTakenAutonomousReview"
+         android:layout_marginTop="89dp"
+         android:text="Special Features"
+         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+     <TextView
+         android:id="@+id/textView30"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/textView29"
+         android:layout_marginTop="36dp"
+         android:text="Defense Rank (1-10)"
+         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+     <EditText
+         android:id="@+id/defenseRankReview"
+         android:layout_width="100dp"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/textView30"
+         android:layout_alignBottom="@+id/textView30"
+         android:layout_toRightOf="@+id/textView30"
+         android:ems="10"
+         android:inputType="number"
+         android:focusable="false"
+         android:focusableInTouchMode="false" />
+
+     <CheckBox
+         android:id="@+id/defenseCheckBoxReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/textView29"
+         android:layout_toRightOf="@+id/textView30"
+         android:text="Defense"
+         android:focusable="false"
+         android:focusableInTouchMode="false"
+         android:enabled="false" />
+
+     <CheckBox
+         android:id="@+id/climbAssistCheckBoxReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/defenseCheckBoxReview"
+         android:layout_alignBottom="@+id/defenseCheckBoxReview"
+         android:layout_alignLeft="@+id/textView8"
+         android:text="Climb Assist"
+         android:focusable="false"
+         android:focusableInTouchMode="false" 
+         android:enabled="false"/>
+
+     <TextView
+         android:id="@+id/textView31"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/defenseRankReview"
+         android:layout_marginTop="81dp"
+         android:text="Shots Made"
+         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+     <EditText
+         android:id="@+id/humanPlayerShotsMadeReview"
+         android:layout_width="100dp"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/textView31"
+         android:layout_alignBottom="@+id/textView31"
+         android:layout_toRightOf="@+id/textView31"
+         android:ems="10"
+         android:inputType="number"
+         android:focusable="false"
+         android:focusableInTouchMode="false" />
+
+     <TextView
+         android:id="@+id/textView32"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/humanPlayerShotsMadeReview"
+         android:layout_alignBottom="@+id/humanPlayerShotsMadeReview"
+         android:layout_toRightOf="@+id/level2ClimbCheckBoxReview"
+         android:text="Shots Taken"
+         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+     <EditText
+         android:id="@+id/humanPlayerShotsTakenReview"
+         android:layout_width="100dp"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/textView32"
+         android:layout_alignBottom="@+id/textView32"
+         android:layout_alignRight="@+id/threePointGoalShotsTakenAutonomousReview"
+         android:ems="10"
+         android:inputType="number"
+         android:focusable="false"
+         android:focusableInTouchMode="false" />
+
+     <TextView
+         android:id="@+id/textView33"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBottom="@+id/textView32"
+         android:layout_toRightOf="@+id/humanPlayerShotsTakenReview"
+         android:text="Penalties"
+         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+     <EditText
+         android:id="@+id/humanPlayerPenaltiesReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/textView33"
+         android:layout_alignBottom="@+id/textView33"
+         android:layout_alignParentRight="true"
+         android:layout_toRightOf="@+id/textView33"
+         android:ems="10"
+         android:inputType="number"
+         android:focusable="false"
+         android:focusableInTouchMode="false" />
+
+     <CheckBox
+         android:id="@+id/humanPlayerCheckBoxReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/textView32"
+         android:layout_alignParentLeft="true"
+         android:text="Human Player"
+         android:focusable="false"
+         android:focusableInTouchMode="false"
+         android:enabled="false" />
+
+     <TextView
+         android:id="@+id/textView34"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/humanPlayerShotsMadeReview"
+         android:layout_marginTop="52dp"
+         android:text="Describe Movement"
+         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+     <EditText
+         android:id="@+id/movementFieldReview"
+         android:layout_width="wrap_content"
+         android:layout_height="75dp"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentRight="true"
+         android:layout_below="@+id/textView34"
+         android:ems="10"
+         android:inputType="textMultiLine"
+         android:focusable="false"
+         android:focusableInTouchMode="false" />
+
+     <TextView
+         android:id="@+id/textView35"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/movementFieldReview"
+         android:layout_marginTop="26dp"
+         android:text="Additional Comments"
+         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+     <EditText
+         android:id="@+id/additionalCommentsFieldReview"
+         android:layout_width="wrap_content"
+         android:layout_height="75dp"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentRight="true"
+         android:layout_below="@+id/textView35"
+         android:ems="10"
+         android:inputType="textMultiLine"
+         android:focusable="false"
+         android:focusableInTouchMode="false" />
+
+     <Button
+         android:id="@+id/goBackButtonReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentRight="true"
+         android:layout_below="@+id/additionalCommentsFieldReview"
+         android:text="Back" />
+
+     <EditText
+         android:id="@+id/allianceColorReview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBottom="@+id/textView6"
+         android:layout_alignLeft="@+id/teamNumberFieldReview"
+         android:layout_alignRight="@+id/defenseCheckBoxReview"
+         android:ems="10" 
+         android:focusable="false"
+         android:focusableInTouchMode="false"/>
+    
+	</RelativeLayout>
+</ScrollView>

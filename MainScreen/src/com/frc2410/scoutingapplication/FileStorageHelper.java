@@ -108,27 +108,60 @@ public class FileStorageHelper
 			 outStream.write("-");
 			 outStream.write(String.valueOf(matchData.getAllianceScore()));
 			 outStream.write("-");
-			 outStream.write(String.valueOf(matchData.getPenalties()));
+			 outStream.write(String.valueOf(matchData.getTeamPenalties()));
 			 outStream.write("-");
-			 //Write Scoring Data
-			 boolean[] scoringData = matchData.getScoringStatus();
+			 outStream.write(String.valueOf(matchData.getAlliancePenalties()));
+			 outStream.write("-");
+			 //Write Shooting Data
+			 boolean[] shootingDataB = matchData.getShootingBooleans();
 			 for(int k = 0;k<=4;k++)
 			 {
-				 outStream.write(booleanToString(scoringData[k]));
+				 outStream.write(booleanToString(shootingDataB[k]));
+				 outStream.write("-");
+			 }
+			 int[] scoringDataI = matchData.getShootingInts();
+			 for(int k = 0;k<=9;k++)
+			 {
+				 outStream.write(String.valueOf(scoringDataI[k]));
 				 outStream.write("-");
 			 }
 			 //Write Climbing Data
-			 boolean[] climbingData = matchData.getClimbingStatus();
+			 boolean[] climbingDataB = matchData.getClimbingBooleans();
 			 for(int k = 0;k<=3;k++)
 			 {
-				 outStream.write(booleanToString(climbingData[k]));
+				 outStream.write(booleanToString(climbingDataB[k]));
+				 outStream.write("-");
+			 }
+			 int[] climbingDataI = matchData.getClimbingInts();
+			 for(int k = 0;k<=3;k++)
+			 {
+				 outStream.write(String.valueOf(climbingDataI[k]));
+				 outStream.write("-");
+			 }
+			 //Write Autonomous Data
+			 boolean[] autonomousDataB = matchData.getAutonomousBooleans();
+			 for(int k = 0;k<=4;k++)
+			 {
+				 outStream.write(booleanToString(autonomousDataB[k]));
+				 outStream.write("-");
+			 }
+			 int[] autonomousDataI = matchData.getAutonomousInts();
+			 for(int k = 0;k<=9;k++)
+			 {
+				 outStream.write(String.valueOf(autonomousDataI[k]));
 				 outStream.write("-");
 			 }
 			 //Write Special Features Data
-			 boolean[] specialFeaturesData = matchData.getSpecialFeatures();
+			 boolean[] specialFeaturesB = matchData.getSpecialFeaturesBooleans();
 			 for(int k = 0;k<=2;k++)
 			 {
-				 outStream.write(booleanToString(specialFeaturesData[k]));
+				 outStream.write(booleanToString(specialFeaturesB[k]));
+				 outStream.write("-");
+			 }
+			 int[] specialFeaturesI = matchData.getSpecialFeaturesInts();
+			 for(int k = 0;k<=3;k++)
+			 {
+				 outStream.write(String.valueOf(specialFeaturesI[k]));
 				 outStream.write("-");
 			 }
 			 //Write End Text Data
@@ -137,7 +170,6 @@ public class FileStorageHelper
 			 outStream.write(matchData.getComments());
 			 outStream.write("@");
 			 outStream.close();
-			 
 			 noErrors = true;
 		 }
 		 catch(IOException e)
@@ -253,16 +285,17 @@ public class FileStorageHelper
 		 }
 		 return noErrors;
 	 }
+	 
 	 public String booleanToString(boolean a)
 	 {
 		 String converted = "";
 		 if(a == false)
 		 {
-			 converted = "No";
+			 converted = "false";
 		 }
 		 else
 		 {
-			 converted = "Yes";
+			 converted = "true";
 		 }
 		 return converted;
 	 }

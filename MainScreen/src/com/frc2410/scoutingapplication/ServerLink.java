@@ -15,12 +15,20 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class ServerLink extends Activity
 {
+	//Variable to Pass As Extra
+	public final static String EXTRA_TEAM_NUMBER = "com.frc2410.scoutingapplication.teamnumber";
+	public final static String EXTRA_TEAM_COLOR = "com.frc2410.scoutingapplication.teamcolor";
+	public final static String EXTRA_MATCH_NUMBER = "com.frc2410.scoutingapplication.matchnumber";
+	
 	//State variables
 	public static final int MESSAGE_CONNECTED = 1;
 	public static final int MESSAGE_FAILED_CONNECTION = 2;
@@ -29,6 +37,11 @@ public class ServerLink extends Activity
 	public static final int MESSAGE_FAILED_INPUT_CREATE = 5;
 	public static final int MESSAGE_FAILED_WRITE_DATA = 6;
 	public static final int MESSAGE_SERVER_DATA = 7;
+	public static final int MESSAGE_STREAMS_CREATED = 8;
+	public static final int MESSAGE_SERVER_WAIT = 9;
+	public static final int MESSAGE_SENT_READY = 10;
+	public static final int MESSAGE_CLIENT_DATA = 11;
+	public static final int MESSAGE_START_DATA_COLLECTION = 12;
 	
 	//BlueTooth Adapter
     private BluetoothAdapter BtAdapter;
@@ -55,6 +68,20 @@ public class ServerLink extends Activity
         //Set View to the main Screen
         setContentView(R.layout.activity_serverlink);
         
+        //Setup Abandon Button
+        Button quitButton = (Button) findViewById(R.id.quitConnectionButton);
+        quitButton.setOnClickListener(new OnClickListener() 
+        {
+            public void onClick(View v) 
+            {
+            	//Send disconnect signal to Server
+            	
+            	
+            	//Close Activity
+            	finish();
+            }
+        });
+        
         // Get the local Bluetooth Adapter
         BtAdapter = BluetoothAdapter.getDefaultAdapter();
         
@@ -70,6 +97,25 @@ public class ServerLink extends Activity
         
         //Write out Server Address
         out.append("Server's MAC Address: " + address + "\n");
+        
+        //Create A device with the received MAC address
+  		BluetoothDevice device = BtAdapter.getRemoteDevice(address);
+  		
+  	    try 
+  	    {
+  	  		//Create the socket for the Connection
+  	        BtSocket = device.createRfcommSocketToServiceRecord(MY_UUID);
+  	    } 
+  	    catch (IOException e) 
+  	    {
+  	        AlertBox("Fatal Error", "Socket Create Failure: Online Mode Cannot Proceed" + e.getMessage() + ".");
+  	    }
+  	    
+  	    //Make Sure discovery is off
+  	    BtAdapter.cancelDiscovery();
+  	    
+  	    //Create Thread to Deal with Connection
+  	    new Thread(new ConnectionThread(BtSocket, mHandler)).start();
 	}
 	
 	protected void onStart()
@@ -79,25 +125,6 @@ public class ServerLink extends Activity
 		
 		//Say we have started the onStart
 		out.append("Activity Started\n");
-		
-		//Create A device with the received MAC address
-		BluetoothDevice device = BtAdapter.getRemoteDevice(address);
-		
-		//Create the socket for the Connection
-	    try 
-	    {
-	        BtSocket = device.createRfcommSocketToServiceRecord(MY_UUID);
-	    } 
-	    catch (IOException e) 
-	    {
-	        AlertBox("Fatal Error", "Socket Create Failure: Online Mode Cannot Proceed" + e.getMessage() + ".");
-	    }
-	    
-	    //Make Sure discovery is off
-	    BtAdapter.cancelDiscovery();
-	    
-	    //Create Thread to Deal with Connection
-	    new ConnectionThread(BtSocket,mHandler).run();
 	}
 	
 	
@@ -106,6 +133,13 @@ public class ServerLink extends Activity
 	    super.onPause();
 	 
 	    out.append("Pausing the Activity\n");
+	}
+	
+	public void onDestroy()
+	{
+	    super.onDestroy();
+		 
+	    out.append("Destroying the Activity\n");
 	 
 	    try     
 	    {
@@ -115,7 +149,7 @@ public class ServerLink extends Activity
 	    {
 	      AlertBox("Fatal Error", "Failed to Close the Socket on Pause" + e2.getMessage() + ".");
 	    }
-	  }
+	}
 	 
 	
 	  public void AlertBox( String title, String message )
@@ -167,6 +201,33 @@ public class ServerLink extends Activity
 	            	case MESSAGE_FAILED_WRITE_DATA:
 	            		out.append("Failed to Write Data\n");
 	            		AlertBox("Fatal Error","Failed to Write Data to Server");
+	            		break;
+	            	case MESSAGE_STREAMS_CREATED:
+	            		out.append("Input/Output Streams Created Sucesfully\n");
+	            		break;
+	            	case MESSAGE_SENT_READY:
+	            		out.append("Sent Ready Command to Server\n");
+	            		break;
+	            	case MESSAGE_CLIENT_DATA:
+	            		String cD = String.valueOf(msg.obj);
+	            		out.append("To Server: " + cD +"\n");
+	            		break;
+	            	case MESSAGE_START_DATA_COLLECTION:
+	            		out.append("Got Message to Start Data Collection\n");
+	            		Bundle b = msg.getData();
+	            		int teamNumber = b.getInt("tN");
+	            		int matchNumber = b.getInt("mN");
+	            		String teamColor = b.getString("tC");
+	            		out.append("Team Number: " + teamNumber + "\n");
+	            		out.append("Match Number: " + matchNumber + "\n");
+	            		out.append("Team Color: " + teamColor + "\n");
+	            		out.append("Starting Fields Form\n");
+	                	Intent intent = new Intent(ServerLink.this, FieldsForm.class);
+	                	intent.putExtra("EXTRA_MODE", "Online");
+	                	intent.putExtra(ServerLink.EXTRA_MATCH_NUMBER,matchNumber);
+	                	intent.putExtra(ServerLink.EXTRA_TEAM_NUMBER,teamNumber);
+	                	intent.putExtra(ServerLink.EXTRA_TEAM_COLOR,teamColor);
+	                	startActivity(intent);
 	            		break;
 	            }
 	        }

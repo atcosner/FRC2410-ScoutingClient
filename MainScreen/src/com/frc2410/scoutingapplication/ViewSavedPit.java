@@ -1,5 +1,7 @@
 package com.frc2410.scoutingapplication;
 
+import com.google.analytics.tracking.android.EasyTracker;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -43,6 +45,10 @@ public class ViewSavedPit extends Activity
 	{
 		super.onStart();
 		
+    	//Setup Google Analytics
+    	EasyTracker.getInstance().setContext(getApplicationContext());
+    	EasyTracker.getInstance().activityStart(this);
+    	
 		//Populate Object with Supplies File
 		pd.populateFromFile(fileName);
 		
@@ -129,5 +135,14 @@ public class ViewSavedPit extends Activity
     	miscColoredDiscs.setChecked(pd.getColoredDiscs());
     	miscVisionTargetting.setChecked(pd.getVisionTargeting());
     	miscEstimatedScore.setText(String.valueOf(pd.getEstimatedScore()));
+	}
+	
+	protected void onStop()
+	{
+		super.onStop();
+		
+    	//Setup Google Analytics
+    	EasyTracker.getInstance().setContext(getApplicationContext());
+    	EasyTracker.getInstance().activityStop(this);
 	}
 }

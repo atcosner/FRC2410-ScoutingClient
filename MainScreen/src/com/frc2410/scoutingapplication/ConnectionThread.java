@@ -4,7 +4,7 @@ import java.io.IOException;
 import android.bluetooth.BluetoothSocket;
 import android.os.Handler;
 
-public class ConnectionThread extends Thread
+public class ConnectionThread implements Runnable
 {
     
     //Bluetooth Socket
@@ -28,7 +28,8 @@ public class ConnectionThread extends Thread
 	        BtSocket.connect();
 	        
 	        //Start Communication Thread
-	        new CommunicationThread(BtSocket,SLHandler).run();
+	        Thread connection = new Thread(new CommunicationThread(BtSocket, SLHandler));
+	        connection.start();
 	    } 
 	    catch (IOException e) 
 	    {

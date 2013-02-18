@@ -13,7 +13,7 @@ import android.widget.Button;
 public class ClientSettings extends Activity
 {
 	//Variable to Pass As Network Mode
-	public final static String EXTRA_MODE = "com.frc2410.scoutingapplication.MODE";
+	public final static String EXTRA_MODE = "EXTRA_MODE";
 	
 	//Button Declarations
     private Button onlineButton;
@@ -39,6 +39,7 @@ public class ClientSettings extends Activity
         {
             public void onClick(View v) 
             {
+            	/*
             	//Inform User of Non Function
             	AlertDialog.Builder builder = new AlertDialog.Builder(ClientSettings.this);
             	builder.setCancelable(false);
@@ -52,11 +53,10 @@ public class ClientSettings extends Activity
 					}
 				});
             	builder.show();
-            	/*
+            	*/
             	//Start Server Config
             	Intent intent = new Intent(ClientSettings.this, ServerSettings.class);
             	startActivity(intent);
-			*/
             }
         });
         

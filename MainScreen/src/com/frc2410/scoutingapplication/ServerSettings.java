@@ -35,7 +35,6 @@ public class ServerSettings extends Activity
     
     //Arrays for the List Views
     private ArrayAdapter<String> mPairedDevicesArrayAdapter;
-    private ArrayAdapter<String> mNewDevicesArrayAdapter;
     
     protected void onCreate(Bundle savedInstanceState) 
     {
@@ -65,36 +64,13 @@ public class ServerSettings extends Activity
             startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
         } 
         
-        //Initialize Discovery Button
-        Button scanButton = (Button) findViewById(R.id.scanForDevices);
-        scanButton.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) 
-            {
-                doDiscovery();
-            }
-        });
-        
         // Initialize array adapters
         mPairedDevicesArrayAdapter = new ArrayAdapter<String>(this, R.layout.bluetooth_device);
-        mNewDevicesArrayAdapter = new ArrayAdapter<String>(this, R.layout.bluetooth_device);
 
         // Find and set up the ListView for paired devices
         ListView pairedListView = (ListView) findViewById(R.id.pairedDevicesView);
         pairedListView.setAdapter(mPairedDevicesArrayAdapter);
         pairedListView.setOnItemClickListener(mDeviceClickListener);
-
-        // Find and set up the ListView for newly discovered devices
-        ListView newDevicesListView = (ListView) findViewById(R.id.discoveredDevicesView);
-        newDevicesListView.setAdapter(mNewDevicesArrayAdapter);
-        newDevicesListView.setOnItemClickListener(mDeviceClickListener);
-
-        // Register for broadcasts when a device is discovered
-        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-        this.registerReceiver(mReceiver, filter);
-
-        // Register for broadcasts when discovery has finished
-        filter = new IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
-        this.registerReceiver(mReceiver, filter);
         
         // Get a set of currently paired devices
         Set<BluetoothDevice> pairedDevices = mBtAdapter.getBondedDevices();
@@ -118,28 +94,6 @@ public class ServerSettings extends Activity
     	super.onStart();
     }
     
-    private void doDiscovery() 
-    {
-    	//Make Scanning Text And Progress Bar Visible
-    	TextView scanningText = (TextView) findViewById(R.id.scanningText);
-    	ProgressBar scanningWheel = (ProgressBar) findViewById(R.id.scanningProgressBar);
-    	scanningText.setVisibility(View.VISIBLE);
-    	scanningWheel.setVisibility(View.VISIBLE);
-    	
-    	//Hide Scan Button
-        Button scanButton = (Button) findViewById(R.id.scanForDevices);
-        scanButton.setVisibility(View.GONE);
-        
-        //Stop Discovery If in Progress
-        if (mBtAdapter.isDiscovering()) 
-        {
-            mBtAdapter.cancelDiscovery();
-        }
-
-        // Request discover
-        mBtAdapter.startDiscovery();
-    }
-    
     protected void onDestroy() 
     {
         super.onDestroy();
@@ -148,9 +102,6 @@ public class ServerSettings extends Activity
         {
             mBtAdapter.cancelDiscovery();
         }
-
-        // Unregister broadcast listeners
-        this.unregisterReceiver(mReceiver);
     }
     
     //Click Listener For List View Items
@@ -169,42 +120,6 @@ public class ServerSettings extends Activity
         	Intent intent = new Intent(ServerSettings.this, ServerLink.class);
         	intent.putExtra(EXTRA_MAC, address);
         	startActivity(intent);
-        }
-    };
-    
-    // The BroadcastReceiver that listens for discovered devices
-    private final BroadcastReceiver mReceiver = new BroadcastReceiver() 
-    {
-        public void onReceive(Context context, Intent intent)
-        {
-            String action = intent.getAction();
-
-            // When discovery finds a device
-            if (BluetoothDevice.ACTION_FOUND.equals(action)) 
-            {
-                // Get the BluetoothDevice object from the Intent
-                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                // If it's already paired, skip it, because it's been listed already
-                if (device.getBondState() != BluetoothDevice.BOND_BONDED) 
-                {
-                    mNewDevicesArrayAdapter.add(device.getName() + "\n" + device.getAddress());
-                }
-            } 
-            else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) 
-            {
-                if (mNewDevicesArrayAdapter.getCount() == 0) 
-                {
-                    mNewDevicesArrayAdapter.add("No Devices Found");
-                }
-            	TextView scanningText = (TextView) findViewById(R.id.scanningText);
-            	ProgressBar scanningWheel = (ProgressBar) findViewById(R.id.scanningProgressBar);
-            	scanningText.setVisibility(View.GONE);
-            	scanningWheel.setVisibility(View.GONE);
-            }
-            
-            //Show Scan Button
-            Button scanButton = (Button) findViewById(R.id.scanForDevices);
-            scanButton.setVisibility(View.VISIBLE);
         }
     };
     
