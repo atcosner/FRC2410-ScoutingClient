@@ -23,8 +23,10 @@ public class ClientSettings extends Activity
     protected void onCreate(Bundle savedInstanceState) 
     {
         super.onCreate(savedInstanceState);
+        
         //Remove title bar
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        
         //Set View to the main Screen
         setContentView(R.layout.activity_clientsettings);
     }
@@ -39,32 +41,19 @@ public class ClientSettings extends Activity
         {
             public void onClick(View v) 
             {
-            	/*
-            	//Inform User of Non Function
-            	AlertDialog.Builder builder = new AlertDialog.Builder(ClientSettings.this);
-            	builder.setCancelable(false);
-            	builder.setTitle("Comming Soon");
-            	builder.setMessage("The Online Feature is currently not available, but will be released soon!");
-            	builder.setPositiveButton("OK", new DialogInterface.OnClickListener() 
-            	{
-					public void onClick(DialogInterface dialog, int which) 
-					{
-						dialog.cancel();
-					}
-				});
-            	builder.show();
-            	*/
-            	//Start Server Config
+            	//Start Server Config Activity
             	Intent intent = new Intent(ClientSettings.this, ServerSettings.class);
             	startActivity(intent);
             }
         });
         
+        //Setup Offline Button With a Click Listener
         offlineButton = (Button) findViewById(R.id.offlineButton);
         offlineButton.setOnClickListener(new OnClickListener() 
         {
             public void onClick(View v) 
             {
+            	//Start Fields Form Activity in Offline Mode
             	Intent intent = new Intent(ClientSettings.this, FieldsForm.class);
             	intent.putExtra(EXTRA_MODE, "Offline");
             	startActivity(intent);

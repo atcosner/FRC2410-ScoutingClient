@@ -10,7 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="" 
-        android:textColor="#FFFFFF"/>
+        android:textColor="#FFFFFF"
+        android:maxLines = "20"
+        android:scrollbars = "vertical"/>
 
     <Button
         android:id="@+id/quitConnectionButton"

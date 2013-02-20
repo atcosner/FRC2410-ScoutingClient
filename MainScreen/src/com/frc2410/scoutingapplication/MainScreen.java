@@ -20,8 +20,10 @@ public class MainScreen extends Activity
     protected void onCreate(Bundle savedInstanceState) 
     {
         super.onCreate(savedInstanceState);
+        
         //Remove title bar
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        
         //Set View to the Main Screen
         setContentView(R.layout.activity_mainscreen);
     }
@@ -73,6 +75,7 @@ public class MainScreen extends Activity
     public void onStop() 
     {
         super.onStop();
+        
         //Setup Google Analytics For Data Collection
         EasyTracker.getInstance().activityStop(this);
       }

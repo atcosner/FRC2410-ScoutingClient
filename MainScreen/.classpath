@@ -4,7 +4,7 @@
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
-	<classpathentry kind="lib" path="C:/Users/austi_000/workspace/libGoogleAnalyticsV2.jar">
+	<classpathentry kind="lib" path="C:/Users/austi_000/workspace/MainScreen/Additional Jars/libGoogleAnalyticsV2.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="jar:file:/C:/Users/austi_000/Downloads/GoogleAnalyticsAndroid/javadocs.zip!/"/>
 		</attributes>

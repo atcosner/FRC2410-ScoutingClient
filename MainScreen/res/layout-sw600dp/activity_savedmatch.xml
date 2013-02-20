@@ -1067,15 +1067,6 @@
          android:focusable="false"
          android:focusableInTouchMode="false" />
 
-     <Button
-         android:id="@+id/goBackButtonReview"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignParentLeft="true"
-         android:layout_alignParentRight="true"
-         android:layout_below="@+id/additionalCommentsFieldReview"
-         android:text="Back" />
-
      <EditText
          android:id="@+id/allianceColorReview"
          android:layout_width="wrap_content"
@@ -1086,6 +1077,30 @@
          android:ems="10" 
          android:focusable="false"
          android:focusableInTouchMode="false"/>
+
+     <Button
+         android:id="@+id/goBackButtonReview"
+         android:layout_width="150dp"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_alignParentRight="true"
+         android:text="Back" />
+
+     <Button
+         android:id="@+id/uploadSavedMatch"
+         android:layout_width="150dp"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_alignParentLeft="true"
+         android:text="Upload Match" />
+
+     <Button
+         android:id="@+id/deleteSavedMatch"
+         android:layout_width="150dp"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_centerHorizontal="true"
+         android:text="Delete Match" />
     
 	</RelativeLayout>
 </ScrollView>

@@ -1,8 +1,6 @@
 package com.frc2410.scoutingapplication;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.UUID;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -14,13 +12,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class ServerLink extends Activity
 {
@@ -58,6 +55,8 @@ public class ServerLink extends Activity
     //Text View for output Data
     TextView out;
     
+    public static boolean inActivity = true;
+    
 	protected void onCreate(Bundle savedInstanceState)
 	{
         super.onCreate(savedInstanceState);
@@ -87,6 +86,9 @@ public class ServerLink extends Activity
         
         //Setup TextView for Debug Data
         out = (TextView) findViewById(R.id.bluetoothDebugTextView);
+        
+        //Make Text View Scrollable
+        out.setMovementMethod(new ScrollingMovementMethod());
         
         //Say we have created the activity
         out.append("Activity Create\n");
@@ -120,18 +122,19 @@ public class ServerLink extends Activity
 	
 	protected void onStart()
 	{
-		//Superclass Mandatory call
+		//Superclass Mandatory Start call
 		super.onStart();
 		
 		//Say we have started the onStart
 		out.append("Activity Started\n");
+    	inActivity = true;
 	}
 	
 	
 	public void onPause() 
 	{
 	    super.onPause();
-	 
+    	inActivity = false;
 	    out.append("Pausing the Activity\n");
 	}
 	
@@ -180,11 +183,17 @@ public class ServerLink extends Activity
 	            		break;
 	            	case MESSAGE_FAILED_CONNECTION:
 	            		out.append("Connection to Server Failed\n");
-	            		AlertBox("Fatal Error","Failed to Establish A Connection");
+	            		if(inActivity)
+	            		{
+	            			AlertBox("Fatal Error","Failed to Establish A Connection");
+	            		}
 	            		break;
 	            	case MESSAGE_FAILED_SOCKET_CLOSE:
 	            		out.append("Failed to Close the Socket\n");
-	            		AlertBox("Fatal Error","Failed to Close the Socket");
+	            		if(inActivity)
+	            		{
+	            			AlertBox("Fatal Error","Failed to Close the Socket");
+	            		}
 	            		break;
 	            	case MESSAGE_SERVER_DATA:
 	            		String sD = String.valueOf(msg.obj);
@@ -192,15 +201,24 @@ public class ServerLink extends Activity
 	            		break;
 	            	case MESSAGE_FAILED_OUTPUT_CREATE:
 	            		out.append("Failed to Create the Output Stream\n");
-	            		AlertBox("Fatal Error","Failed to Create an Output Socket");
+	            		if(inActivity)
+	            		{
+	            			AlertBox("Fatal Error","Failed to Create an Output Socket");
+	            		}
 	            		break;	
 	            	case MESSAGE_FAILED_INPUT_CREATE:
 	            		out.append("Failed to Create the Input Stream\n");
-	            		AlertBox("Fatal Error","Failed to Create an Input Socket");
+	            		if(inActivity)
+	            		{
+	            			AlertBox("Fatal Error","Failed to Create an Input Socket");
+	            		}
 	            		break;
 	            	case MESSAGE_FAILED_WRITE_DATA:
 	            		out.append("Failed to Write Data\n");
-	            		AlertBox("Fatal Error","Failed to Write Data to Server");
+	            		if(inActivity)
+	            		{
+	            			AlertBox("Fatal Error","Failed to Write Data to Server");
+	            		}
 	            		break;
 	            	case MESSAGE_STREAMS_CREATED:
 	            		out.append("Input/Output Streams Created Sucesfully\n");

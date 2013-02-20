@@ -48,7 +48,7 @@ public class PitScouting extends Activity
         resetButton = (Button) findViewById(R.id.resetButtonPit);
         backButton = (Button) findViewById(R.id.goBackButtonPit);
         
-        //Setup Group Enable Buttons
+        //Setup Shooter Group Enable Buttons
         canShoot = (CheckBox) findViewById(R.id.shooterCheckBoxPit);
         canShoot.setOnCheckedChangeListener(new OnCheckedChangeListener()
         {
@@ -65,6 +65,7 @@ public class PitScouting extends Activity
 			}
         });
         
+        //Setup Climbing Group Enable Buttons
         canClimb = (CheckBox) findViewById(R.id.climbingCheckBoxPit);
         canClimb.setOnCheckedChangeListener(new OnCheckedChangeListener()
         {
@@ -81,6 +82,7 @@ public class PitScouting extends Activity
 			}
         });
         
+        //Setup Autonomous Group Enable Buttons
         hasAutonomous = (CheckBox) findViewById(R.id.autonomousPit);
         hasAutonomous.setOnCheckedChangeListener(new OnCheckedChangeListener()
         {

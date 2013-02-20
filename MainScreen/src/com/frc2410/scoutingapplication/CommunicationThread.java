@@ -34,6 +34,7 @@ public class CommunicationThread implements Runnable
     
 	public CommunicationThread(BluetoothSocket btSocket, Handler handler)
 	{
+		//Set Local variables to Passed Parameters
 		BtSocket = btSocket;
 		CMHandler = handler;
 	}
@@ -66,12 +67,11 @@ public class CommunicationThread implements Runnable
 	    }
 	    
 	    
-	    //Streams Created Sucessfully
+	    //Inform ServerLink that Streams were Created Successfully
 	    CMHandler.obtainMessage(ServerLink.MESSAGE_STREAMS_CREATED).sendToTarget();
 	     
 	    try 
 	    {
-
 	    	//Create String and Send to UI
 	    	String serverData = bReader.readLine();
 	    	CMHandler.obtainMessage(ServerLink.MESSAGE_SERVER_DATA,serverData).sendToTarget();
@@ -89,8 +89,8 @@ public class CommunicationThread implements Runnable
 	    			//Read Data From Server
 	    			try 
 	    			{
-	    				Log.i("Comm Thread" ,"Waiting for Ping Message");
 	    				serverDataP = bReader.readLine();
+	    		        CMHandler.obtainMessage(ServerLink.MESSAGE_SERVER_DATA,serverDataP).sendToTarget();
 	    			} 
 	    			catch (IOException e) 
 	    			{
@@ -101,26 +101,25 @@ public class CommunicationThread implements Runnable
 	    			if(hasConnection)
 	    			{
 	    				//Process Server Command
-	    				Log.i("Comm Thread" ,"Processing Ping");
 	    				processCommand(serverDataP);
 	    			}
 	    		}
 	    		while(!serverDataP.equals("3"));
 
-	    		//Wait for Server Information
+	    		//Read Match Number from Server
 	    		String matchNumber = bReader.readLine();
 	    		CMHandler.obtainMessage(ServerLink.MESSAGE_SERVER_DATA,matchNumber).sendToTarget();
-	    		Log.i("Match Number", matchNumber);
 	    		
+	    		//Read Team Number From Server
 	    		String teamNumber = bReader.readLine();
 	    		CMHandler.obtainMessage(ServerLink.MESSAGE_SERVER_DATA,teamNumber).sendToTarget();
-	    		Log.i("Team Number", teamNumber);
 	    		
+	    		//Read Alliance Color From Server
 	    		String teamColor = bReader.readLine();
 	    		CMHandler.obtainMessage(ServerLink.MESSAGE_SERVER_DATA,teamColor).sendToTarget();
-	    		Log.i("Team Color", teamColor);
 	    		
 	    		//Start a Fields Form With Collected Data
+	    		//Create Bundle to Store Match Data
 	    		Bundle b = new Bundle();
 	    		b.putInt("tN", Integer.parseInt(teamNumber));
 	    		b.putInt("mN", Integer.parseInt(matchNumber));
@@ -138,16 +137,14 @@ public class CommunicationThread implements Runnable
 	    }
 	    
 	    //Respond to Server Ping while we wait for Scouting Data to be done
-	    Log.i("Comm Thread" ,"Initiating Ping Message");
-	    
 	    String serverData = "";
 	    do
 	    {
 	    	//Read Data From Server
 	    	try 
 	    	{
-	    		Log.i("Comm Thread" ,"Waiting for Ping Message");
 				serverData = bReader.readLine();
+				CMHandler.obtainMessage(ServerLink.MESSAGE_SERVER_DATA,serverData).sendToTarget();
 			} 
 	    	catch (IOException e) 
 	    	{
@@ -156,7 +153,6 @@ public class CommunicationThread implements Runnable
 			}
 	    	
 	    	//Process Server Command
-	    	Log.i("Comm Thread" ,"Processing Ping");
 	    	processCommand(serverData);
 	    	
 	    }
@@ -178,41 +174,44 @@ public class CommunicationThread implements Runnable
 	    	FieldsForm.commThreadStatusCode = 2;
 	    }
 	    
-	    //Keep Connection Alive Until Server Has Acknowledged Receive
-    	try 
-    	{
-    		Log.i("Comm Thread" ,"Waiting until Server Acknowledged");
-			serverData = bReader.readLine();
-		} 
-    	catch (IOException e) 
-    	{
-			//Server Disconnected
-    		hasConnection = false;
-		}
+	    do
+	    {
+	    	//Keep Connection Alive Until Server Has Acknowledged Receive
+	    	try 
+	    	{
+	    		Log.i("Comm Thread" ,"Waiting until Server Acknowledged Scouting Data");
+	    		serverData = bReader.readLine();
+	    		CMHandler.obtainMessage(ServerLink.MESSAGE_SERVER_DATA,serverData).sendToTarget();
+	    	} 
+	    	catch (IOException e) 
+	    	{
+	    		//Server Disconnected
+	    		hasConnection = false;
+	    	}
+	    }
+	    while(!serverData.equals("4")&&hasConnection);
     	
     	if(hasConnection)
     	{
-    		Log.i("Comm Thread" ,"Recieved Server Data");
-    		Log.i("Comm Thread" ,serverData);
-    		if(serverData.equals("4")||serverData.equals("1"))
-    		{
-    			Log.i("Comm Thread" ,"Recieved Server Ack.");
-    			//Server Has Received Scouting Data
-    	    	//Notify Fields Form that We are Done
-    	    	FieldsForm.commThreadStatusCode = 1;
-    		}
-    		else
-    		{
-    			//Unknown Command
-    	    	FieldsForm.commThreadStatusCode = 2;
-    		}
+    		Log.i("Comm Thread" ,"Recieved Server Ack.");
+    		//Server Has Received Scouting Data
+    		//Notify Fields Form that We are Done
+    		FieldsForm.commThreadStatusCode = 1;
+    	}
+    	else
+    	{
+    		//Dropped Connection
+    		//Alert Fields Form
+    		FieldsForm.commThreadStatusCode = 2;
     	}
 	}
 
 	public void processCommand(String sC)
 	{
+		//1 is Server Ping
 		if(sC.equals("1"))
 		{
+			//Respond to Ping with 2
 			sendData("2");
 		}
 		else
@@ -222,30 +221,25 @@ public class CommunicationThread implements Runnable
 		}
 	}
 	
-	synchronized void sleepThread()
-	{
-		try 
-		{
-			wait();
-		} 
-		catch (InterruptedException e) 
-		{
-			e.printStackTrace();
-		}
-	}
-	
 	private void sendData(String data)
 	{
 	    //Attempt to Send the Message
+		//Create StringBuilder
 		StringBuilder sendData = new StringBuilder();
 		sendData.append(data);
+		//Add Newline because Server uses ReadLine
 		sendData.append("\n");
 		byte[] msgBuffer = sendData.toString().getBytes();
 		
 	    try 
 	    {
+	    	//Write Message to OutStream
 	        outStream.write(msgBuffer);
+	        
+	        //Flush Stream to Ensure Sending
 	        outStream.flush();
+	        
+	        //Alert UI to what we have Send
 	        CMHandler.obtainMessage(ServerLink.MESSAGE_CLIENT_DATA,data).sendToTarget();
 	    } 
 	    catch (IOException e) 

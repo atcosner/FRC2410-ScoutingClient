@@ -1,8 +1,11 @@
 package com.frc2410.scoutingapplication;
 
 import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.Log;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +15,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 public class ViewSavedMatch extends Activity
 {
@@ -32,6 +36,8 @@ public class ViewSavedMatch extends Activity
         Intent intent = getIntent();
         fileName = intent.getStringExtra(OfflineData.FILE_NAME);
         
+        Log.i(fileName);
+        
         //Setup Back Button
         Button goBack = (Button) findViewById(R.id.goBackButtonReview);
         goBack.setOnClickListener(new OnClickListener() 
@@ -44,6 +50,78 @@ public class ViewSavedMatch extends Activity
         
         //Create Helper Object
         md = new MatchScoutData();
+        
+        //Create Button to Delete Match
+        Button deleteMatch = (Button) findViewById(R.id.deleteSavedMatch);
+        deleteMatch.setOnClickListener(new OnClickListener() 
+        {
+            public void onClick(View v) 
+            {
+            	AlertDialog.Builder builder = new AlertDialog.Builder(ViewSavedMatch.this);
+            	builder.setCancelable(false);
+            	builder.setTitle("Confirm Delete");
+            	builder.setMessage("Are you sure you would like to delete this Saved Match?");
+            	builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() 
+            	{
+        			public void onClick(DialogInterface dialog, int which) 
+        			{
+                    	//Create Object from FileStorageHelper
+                    	FileStorageHelper fh = new FileStorageHelper();
+                    	
+                    	//Delete File
+                    	if(fh.deleteMatchFile(fileName))
+                    	{
+                    		//Match Was Deleted
+                    		//Show Success
+        					Toast toast = Toast.makeText(getApplicationContext(), "Match Deleted Sucessfully!", Toast.LENGTH_LONG);
+        					toast.show();
+        					
+        					//Finish Activity
+        					finish();
+                    	}
+                    	else
+                    	{
+                    		//Match Was Not Deleted
+                    		//Show Error
+        					Toast toast = Toast.makeText(getApplicationContext(), "Error Deleting Match!", Toast.LENGTH_LONG);
+        					toast.show();
+                    	}
+        			}
+            	});
+            	builder.setNegativeButton("No", new DialogInterface.OnClickListener() 
+            	{
+        			public void onClick(DialogInterface dialog, int which) 
+        			{
+        				//Do Nothing
+        				//Close Dialog
+        				dialog.cancel();
+        			}
+            	});
+            	builder.show();
+            }
+        });
+        
+        //Create Button to Upload Match
+        Button uploadMatch = (Button) findViewById(R.id.uploadSavedMatch);
+        uploadMatch.setOnClickListener(new OnClickListener() 
+        {
+            public void onClick(View v) 
+            {
+            	//Inform Users of Future Feature
+            	AlertDialog.Builder builder = new AlertDialog.Builder(ViewSavedMatch.this);
+            	builder.setCancelable(false);
+            	builder.setTitle("Comming Soon");
+            	builder.setMessage("The Upload Feature is currently not available, but will be released soon!");
+            	builder.setPositiveButton("OK", new DialogInterface.OnClickListener() 
+            	{
+					public void onClick(DialogInterface dialog, int which) 
+					{
+						dialog.cancel();
+					}
+				});
+            	builder.show();
+            }
+        });
 	}
 	
 	protected void onStart()

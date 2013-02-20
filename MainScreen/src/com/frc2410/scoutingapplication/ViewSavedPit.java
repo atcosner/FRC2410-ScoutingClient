@@ -1,8 +1,9 @@
 package com.frc2410.scoutingapplication;
 
 import com.google.analytics.tracking.android.EasyTracker;
-
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class ViewSavedPit extends Activity
 {
@@ -39,6 +41,78 @@ public class ViewSavedPit extends Activity
         
         //Create Helper Object
         pd = new PitScoutData();
+        
+        //Create Button to Delete Pit
+        Button deletePit = (Button) findViewById(R.id.deleteSavedPit);
+        deletePit.setOnClickListener(new OnClickListener() 
+        {
+            public void onClick(View v) 
+            {
+            	AlertDialog.Builder builder = new AlertDialog.Builder(ViewSavedPit.this);
+            	builder.setCancelable(false);
+            	builder.setTitle("Confirm Delete");
+            	builder.setMessage("Are you sure you would like to delete this Saved Pit?");
+            	builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() 
+            	{
+        			public void onClick(DialogInterface dialog, int which) 
+        			{
+                    	//Create Object from FileStorageHelper
+                    	FileStorageHelper fh = new FileStorageHelper();
+                    	
+                    	//Delete File
+                    	if(fh.deletePitFile(fileName))
+                    	{
+                    		//Match Was Deleted
+                    		//Show Success
+        					Toast toast = Toast.makeText(getApplicationContext(), "Pit Deleted Sucessfully!", Toast.LENGTH_LONG);
+        					toast.show();
+        					
+        					//Finish Activity
+        					finish();
+                    	}
+                    	else
+                    	{
+                    		//Match Was Not Deleted
+                    		//Show Error
+        					Toast toast = Toast.makeText(getApplicationContext(), "Error Deleting Pit!", Toast.LENGTH_LONG);
+        					toast.show();
+                    	}
+        			}
+            	});
+            	builder.setNegativeButton("No", new DialogInterface.OnClickListener() 
+            	{
+        			public void onClick(DialogInterface dialog, int which) 
+        			{
+        				//Do Nothing
+        				//Close Dialog
+        				dialog.cancel();
+        			}
+            	});
+            	builder.show();
+            }
+        });
+        
+        //Create Button to Upload Pit
+        Button uploadPit = (Button) findViewById(R.id.uploadSavedPit);
+        uploadPit.setOnClickListener(new OnClickListener() 
+        {
+            public void onClick(View v) 
+            {
+            	//Inform Users of Future Feature
+            	AlertDialog.Builder builder = new AlertDialog.Builder(ViewSavedPit.this);
+            	builder.setCancelable(false);
+            	builder.setTitle("Comming Soon");
+            	builder.setMessage("The Upload Feature is currently not available, but will be released soon!");
+            	builder.setPositiveButton("OK", new DialogInterface.OnClickListener() 
+            	{
+					public void onClick(DialogInterface dialog, int which) 
+					{
+						dialog.cancel();
+					}
+				});
+            	builder.show();
+            }
+        });
 	}
 	
 	protected void onStart()

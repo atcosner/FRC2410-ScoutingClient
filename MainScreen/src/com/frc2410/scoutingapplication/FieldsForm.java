@@ -6,13 +6,10 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
-import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -21,7 +18,6 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -451,6 +447,7 @@ public class FieldsForm extends Activity implements OnCheckedChangeListener, and
     
     private void clearEnteredData()
     {
+    	//Variables for Header Data
     	EditText matchNumber = (EditText) findViewById(R.id.matchNumberField);
     	EditText teamNumber = (EditText) findViewById(R.id.teamNumberField);
     	EditText teamScore = (EditText) findViewById(R.id.teamScoreField);
@@ -460,6 +457,7 @@ public class FieldsForm extends Activity implements OnCheckedChangeListener, and
     	EditText describeMovement = (EditText) findViewById(R.id.movementField);
     	EditText additionalComments = (EditText) findViewById(R.id.additionalCommentsField);
     	
+    	//Clear Components
     	matchNumber.setText("");
     	teamNumber.setText("");
     	teamScore.setText("");
@@ -469,6 +467,7 @@ public class FieldsForm extends Activity implements OnCheckedChangeListener, and
     	describeMovement.setText("");
     	additionalComments.setText("");
     	
+    	//Variables for Shooting
     	CheckBox onePointGoal = (CheckBox) findViewById(R.id.onePointCheckBox);
     	CheckBox twoPointGoal = (CheckBox) findViewById(R.id.twoPointCheckBox);
     	CheckBox threePointGoal = (CheckBox) findViewById(R.id.threePointCheckBox);
@@ -484,6 +483,7 @@ public class FieldsForm extends Activity implements OnCheckedChangeListener, and
     	EditText ShotsTaken3Point = (EditText) findViewById(R.id.threePointGoalShotsTaken);
     	EditText ShotsTaken5Point = (EditText) findViewById(R.id.fivePointGoalShotsTaken);
     	
+    	//Clear Components
     	onePointGoal.setChecked(false);
     	twoPointGoal.setChecked(false);
     	threePointGoal.setChecked(false);
@@ -499,6 +499,7 @@ public class FieldsForm extends Activity implements OnCheckedChangeListener, and
     	ShotsTaken3Point.setText("");
     	ShotsTaken5Point.setText("");
     	
+    	//Variables for Climbing
     	CheckBox climb1 = (CheckBox) findViewById(R.id.level1ClimbCheckBox);
     	CheckBox climb2 = (CheckBox) findViewById(R.id.level2ClimbCheckBox);
     	CheckBox climb3 = (CheckBox) findViewById(R.id.level3ClimbCheckBox);
@@ -507,6 +508,7 @@ public class FieldsForm extends Activity implements OnCheckedChangeListener, and
     	EditText climbingTeamPenalties = (EditText) findViewById(R.id.climbingTeamPenalties);
     	EditText climbingAlliancePenalties = (EditText) findViewById(R.id.climbingAlliancePenalties);
     	
+    	//Clear Components
     	climb1.setChecked(false);
     	climb2.setChecked(false);
     	climb3.setChecked(false);
@@ -515,6 +517,7 @@ public class FieldsForm extends Activity implements OnCheckedChangeListener, and
     	climbingTeamPenalties.setText("");
     	climbingAlliancePenalties.setText("");
     	
+    	//Components for Autonomous
     	EditText autonomousTeamPenalties = (EditText) findViewById(R.id.teamPenaltiesAutonomous);
     	EditText autonomousAlliancePenalties = (EditText) findViewById(R.id.alliancePenaltiesAutonomous);
     	CheckBox onePointGoalA = (CheckBox) findViewById(R.id.onePointGoalAutonomous);
@@ -530,6 +533,7 @@ public class FieldsForm extends Activity implements OnCheckedChangeListener, and
     	EditText ShotsTaken3PointA = (EditText) findViewById(R.id.threePointGoalShotsTakenAutonomous);
     	EditText ShotsTaken5PointA = (EditText) findViewById(R.id.fivePointGoalShotsTakenAutonomous);
     	
+    	//Clear Components
     	autonomousTeamPenalties.setText("");
     	autonomousAlliancePenalties.setText("");
     	onePointGoalA.setChecked(false);
@@ -545,6 +549,7 @@ public class FieldsForm extends Activity implements OnCheckedChangeListener, and
     	ShotsTaken3PointA.setText("");
     	ShotsTaken5PointA.setText("");
     	
+    	//Components for Special Features
     	CheckBox defense = (CheckBox) findViewById(R.id.defenseCheckBox);
     	CheckBox climbAssist = (CheckBox) findViewById(R.id.climbAssistCheckBox);
     	CheckBox humanPlayer = (CheckBox) findViewById(R.id.humanPlayerCheckBox);
@@ -553,6 +558,7 @@ public class FieldsForm extends Activity implements OnCheckedChangeListener, and
     	EditText humanPlayerShotsMade = (EditText) findViewById(R.id.humanPlayerShotsMade);
     	EditText humanPlayerShotsTaken = (EditText) findViewById(R.id.humanPlayerShotsTaken);
     	
+    	//Clear Components
     	defense.setChecked(false);
     	climbAssist.setChecked(false);
     	humanPlayer.setChecked(false);
@@ -873,6 +879,7 @@ public class FieldsForm extends Activity implements OnCheckedChangeListener, and
     
     public void onCheckedChanged(RadioGroup changedGroup, int checkedId)
     {
+    	//If Checked Status has Changed on any RadioButtons/CheckBoxes
     	if(changedGroup.getId() == R.id.shootGroup)
     	{
         	CheckBox onePointGoal = (CheckBox) findViewById(R.id.onePointCheckBox);
@@ -1425,12 +1432,72 @@ public class FieldsForm extends Activity implements OnCheckedChangeListener, and
 						//Set Data String to Null
 						stringDataToSend = null;
 						
+						//Set Status Code to Zero
+						commThreadStatusCode = 0;
+						
 						//Data Send Successfully
 						commThreadGoToMainScreen();
 						break;
 					case 2:
 						//No Server Connection
 						//Offer To Save Offline
+				    	AlertDialog.Builder builder = new AlertDialog.Builder(FieldsForm.this);
+				    	builder.setCancelable(false);
+				    	builder.setTitle("Would you like to save the following data?");
+				    	builder.setMessage("The Server Connection was lost during Scouting, would you like to save the data offline?");
+				    	builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() 
+				    	{
+							public void onClick(DialogInterface dialog, int which) 
+							{
+								//Saved Match Data Offline
+								//Create Helper Object
+								FileStorageHelper fh = new FileStorageHelper(md);
+								if(fh.canWeWrite())
+								{
+									//Save Data and Get Save Result
+									if(fh.writeMatchFile("MS"))
+									{
+										//Display Success Toast to User
+										Toast toast = Toast.makeText(getApplicationContext(), "Match Data was Stored Sucessfully!", Toast.LENGTH_LONG);
+										toast.show();
+										
+										//Return to Main Screen
+										Intent startMain = new Intent(FieldsForm.this, MainScreen.class);
+										startMain.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+										startActivity(startMain);
+									}
+									else
+									{
+										//Display Error Toast to User
+										Toast toast = Toast.makeText(getApplicationContext(), "Error Saving File, Data was not saved", Toast.LENGTH_LONG);
+										toast.show();
+										
+										//Close Dialog
+										dialog.cancel();
+									}
+
+								}
+								else
+								{
+									//Alert User to the Error
+									Toast toast = Toast.makeText(getApplicationContext(), "File Location Check Error, Check that you External Storage is Mounted/Writeable", Toast.LENGTH_LONG);
+									toast.show();
+									//Close Dialog
+									dialog.cancel();
+								}
+							}
+				    	});
+				    	builder.setPositiveButton("No", new DialogInterface.OnClickListener() 
+				    	{
+							public void onClick(DialogInterface dialog, int which) 
+							{
+								//Return to Main Screen
+								Intent startMain = new Intent(FieldsForm.this, MainScreen.class);
+								startMain.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+								startActivity(startMain);
+							}
+				    	});
+				    	builder.show();
 						break;
 					}
 				}
@@ -1450,6 +1517,7 @@ public class FieldsForm extends Activity implements OnCheckedChangeListener, and
 	@Override
 	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) 
 	{
+		//If Checked Status has Changed For CheckBoxes
 		if(buttonView.getId() == R.id.onePointCheckBox)
 		{
 			CheckBox cB = (CheckBox) buttonView;
@@ -1617,6 +1685,7 @@ public class FieldsForm extends Activity implements OnCheckedChangeListener, and
 		//Display Success Toast to User
 		Toast toast = Toast.makeText(getApplicationContext(), "Match Data was Recieved By the Server! Thanks for Scouting!", Toast.LENGTH_LONG);
 		toast.show();
+		
 		//Return to Main Screen
 		Intent startMain = new Intent(FieldsForm.this, MainScreen.class);
 		startMain.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

@@ -57,13 +57,6 @@ public class ServerSettings extends Activity
             return;
         }
         
-        //Make Sure Bluetooth Is Enabled
-        if (!mBtAdapter.isEnabled())
-        {
-            Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
-        } 
-        
         // Initialize array adapters
         mPairedDevicesArrayAdapter = new ArrayAdapter<String>(this, R.layout.bluetooth_device);
 
@@ -72,21 +65,58 @@ public class ServerSettings extends Activity
         pairedListView.setAdapter(mPairedDevicesArrayAdapter);
         pairedListView.setOnItemClickListener(mDeviceClickListener);
         
-        // Get a set of currently paired devices
-        Set<BluetoothDevice> pairedDevices = mBtAdapter.getBondedDevices();
-
-        // If there are paired devices, add each one to the ArrayAdapter
-        if (pairedDevices.size() > 0) 
+        //Make Sure Bluetooth Is Enabled
+        if (!mBtAdapter.isEnabled())
         {
-            for (BluetoothDevice device : pairedDevices) 
-            {
-                mPairedDevicesArrayAdapter.add(device.getName() + "\n" + device.getAddress());
-            }
+            Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
         } 
-        else 
+        else
         {
-            mPairedDevicesArrayAdapter.add("No Paried Devices!");
+            // Get a set of currently paired devices
+            Set<BluetoothDevice> pairedDevices = mBtAdapter.getBondedDevices();
+
+            // If there are paired devices, add each one to the ArrayAdapter
+            if (pairedDevices.size() > 0) 
+            {
+                for (BluetoothDevice device : pairedDevices) 
+                {
+                    mPairedDevicesArrayAdapter.add(device.getName() + "\n" + device.getAddress());
+                }
+            } 
+            else 
+            {
+                mPairedDevicesArrayAdapter.add("No Paried Devices!");
+            }
         }
+        
+        
+        //Create Listener for Refresh Button
+        Button refreshButton = (Button) findViewById(R.id.refreshPairedDevices);
+        refreshButton.setOnClickListener(new OnClickListener() 
+        {
+            public void onClick(View v) 
+            {
+            	//Clear List of Paired Devices
+            	mPairedDevicesArrayAdapter.clear();
+            	
+                // Get a set of currently paired devices
+                Set<BluetoothDevice> pairedDevices = mBtAdapter.getBondedDevices();
+
+                // If there are paired devices, add each one to the ArrayAdapter
+                if (pairedDevices.size() > 0) 
+                {
+                    for (BluetoothDevice device : pairedDevices) 
+                    {
+                        mPairedDevicesArrayAdapter.add(device.getName() + "\n" + device.getAddress());
+                    }
+                } 
+                else 
+                {
+                    mPairedDevicesArrayAdapter.add("No Paried Devices!");
+                }
+            }
+        });
     }
     
     protected void onStart()
@@ -97,6 +127,7 @@ public class ServerSettings extends Activity
     protected void onDestroy() 
     {
         super.onDestroy();
+        
         //Stop Discovery
         if (mBtAdapter != null) 
         {
@@ -128,6 +159,21 @@ public class ServerSettings extends Activity
         if (resultCode == Activity.RESULT_OK) 
         {
             // Bluetooth is now enabled continue with execution
+            // Get a set of currently paired devices
+            Set<BluetoothDevice> pairedDevices = mBtAdapter.getBondedDevices();
+
+            // If there are paired devices, add each one to the ArrayAdapter
+            if (pairedDevices.size() > 0) 
+            {
+                for (BluetoothDevice device : pairedDevices) 
+                {
+                    mPairedDevicesArrayAdapter.add(device.getName() + "\n" + device.getAddress());
+                }
+            } 
+            else 
+            {
+                mPairedDevicesArrayAdapter.add("No Paried Devices!");
+            }
         }
         else 
         {

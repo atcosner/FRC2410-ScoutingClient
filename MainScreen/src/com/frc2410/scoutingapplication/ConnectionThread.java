@@ -15,6 +15,7 @@ public class ConnectionThread implements Runnable
     
 	public ConnectionThread(BluetoothSocket btSocket, Handler handler)
 	{
+		//Assign Parameters to Local Variables
 		BtSocket = btSocket;
 		SLHandler = handler;
 	}

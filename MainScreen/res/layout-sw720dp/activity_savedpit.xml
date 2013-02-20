@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" 
-    android:background="#222222">
+    android:background="#C0C0C0">
 
     <EditText
         android:id="@+id/teamNumberPitReview"
@@ -13,7 +13,7 @@
         android:ems="10"
         android:enabled="false"
         android:inputType="number" 
-        android:textColor="#FFFFFF">
+        android:textColor="#000000">
         <requestFocus />
 
     </EditText>
@@ -26,7 +26,7 @@
         android:layout_alignParentTop="true"
         android:text="Team Number"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/teamNamePitReview"
@@ -36,7 +36,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:ems="10" 
-        android:textColor="#FFFFFF"/>
+        android:textColor="#000000"/>
 
     <TextView
         android:id="@+id/textView2"
@@ -45,7 +45,7 @@
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/teamNamePitReview"
         android:text="Team Name"
-        android:textColor="#FFFFFF" 
+        android:textColor="#000000" 
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -56,7 +56,7 @@
         android:layout_below="@+id/teamNumberPitReview"
         android:layout_marginTop="21dp"
         android:text="Strategy"
-        android:textColor="#FFFFFF" 
+        android:textColor="#000000" 
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
@@ -68,7 +68,7 @@
         android:enabled="false"
         android:ems="10" 
         android:inputType="textMultiLine"
-        android:textColor="#FFFFFF">
+        android:textColor="#000000">
 
     </EditText>
 
@@ -81,7 +81,7 @@
         android:layout_marginTop="44dp"
         android:text="Shooter"
         android:textSize="32dp"
-        android:textColor="#FFFFFF" 
+        android:textColor="#000000" 
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <CheckBox
@@ -101,7 +101,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/shooterCheckBoxPitReview"
         android:text="Description: "
-        android:textColor="#FFFFFF" 
+        android:textColor="#000000" 
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -111,7 +111,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/shooterDescriptionPitReview"
         android:text="Speed (Final)"
-        android:textColor="#FFFFFF" 
+        android:textColor="#000000" 
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
@@ -122,7 +122,7 @@
         android:layout_alignTop="@+id/textView6"
         android:layout_toRightOf="@+id/shooterCheckBoxPitReview"
         android:ems="10"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:inputType="number" />
 
     <EditText
@@ -133,7 +133,7 @@
         android:layout_alignLeft="@+id/shooterSpeedPitReview"
         android:layout_alignTop="@+id/textView7"
         android:ems="10"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:inputType="number" />
 
     <TextView
@@ -143,14 +143,14 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/shooterSpeedPitReview"
         android:text="Angle"
-        android:textColor="#FFFFFF" 
+        android:textColor="#000000" 
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
         android:id="@+id/shooterDescriptionPitReview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:enabled="false"
         android:layout_alignLeft="@+id/shooterSpeedPitReview"
         android:layout_below="@+id/shooterCheckBoxPitReview"
@@ -163,7 +163,7 @@
         android:layout_below="@+id/shooterAnglePitReview"
         android:layout_toLeftOf="@+id/shooterAnglePitReview"
         android:text="Adjustable"
-        android:textColor="#FFFFFF" 
+        android:textColor="#000000" 
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -173,7 +173,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView8"
         android:text="Floor Pick Up"
-        android:textColor="#FFFFFF" 
+        android:textColor="#000000" 
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <CheckBox
@@ -194,7 +194,7 @@
         android:layout_alignParentLeft="true"
         android:text="System Speed"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
+        android:textColor="#000000" />
 
     <CheckBox
         android:id="@+id/adjustableShooterPitReview"
@@ -209,7 +209,7 @@
     <EditText
         android:id="@+id/shooterSystemSpeedPitReview"
         android:layout_width="wrap_content"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:layout_height="wrap_content"
         android:enabled="false"
         android:layout_alignLeft="@+id/shooterAnglePitReview"
@@ -221,7 +221,7 @@
         android:id="@+id/drivetrainDesciptionPitReview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:enabled="false"
         android:layout_above="@+id/shooterSpeedPitReview"
         android:layout_toRightOf="@+id/TextView01"
@@ -236,12 +236,12 @@
         android:layout_toLeftOf="@+id/teamNamePitReview"
         android:text="Description: "
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/drivetrainWheelsPitReview"
         android:layout_width="wrap_content"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:enabled="false"
         android:layout_height="wrap_content"
         android:layout_above="@+id/shooterAnglePitReview"
@@ -251,7 +251,7 @@
     <EditText
         android:id="@+id/drivetrainSpeedPitReview"
         android:layout_width="wrap_content"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:layout_height="wrap_content"
         android:enabled="false"
         android:layout_above="@+id/adjustableShooterPitReview"
@@ -268,7 +268,7 @@
         android:layout_alignLeft="@+id/TextView01"
         android:text="Wheels"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/textView11"
@@ -278,7 +278,7 @@
         android:layout_alignLeft="@+id/TextView01"
         android:text="Drivetrain"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="32dp" />
 
     <TextView
@@ -289,7 +289,7 @@
         android:layout_alignTop="@+id/shooterAnglePitReview"
         android:text="Speed"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/textView14"
@@ -298,14 +298,14 @@
         android:layout_alignLeft="@+id/textView13"
         android:layout_below="@+id/shooterAnglePitReview"
         android:text="Special"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
         android:id="@+id/drivetrainSpecialPitReview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:enabled="false"
         android:layout_alignBottom="@+id/shooterSystemSpeedPitReview"
         android:layout_alignTop="@+id/textView14"
@@ -322,7 +322,7 @@
         android:layout_marginTop="50dp"
         android:text="Climbing"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="32dp" />
 
     <CheckBox
@@ -341,7 +341,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:enabled="false"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:layout_alignLeft="@+id/shooterSystemSpeedPitReview"
         android:layout_below="@+id/climbingCheckBoxPitReview"
         android:ems="10"
@@ -356,13 +356,13 @@
         android:layout_alignParentLeft="true"
         android:text="Speed"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/climbingHighestLevelReview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:enabled="false"
         android:layout_alignLeft="@+id/climbingSpeedPitReview"
         android:layout_alignTop="@+id/textView16"
@@ -377,7 +377,7 @@
         android:layout_below="@+id/climbingSpeedPitReview"
         android:text="Highest Level"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
+        android:textColor="#000000" />
 
     <CheckBox
         android:id="@+id/climbingSidePitReview"
@@ -387,12 +387,12 @@
         android:layout_below="@+id/climbingHighestLevelReview"
         android:layout_toRightOf="@+id/textView1"
         android:text="Side"
-        android:textColor="#FFFFFF" />
+        android:textColor="#000000" />
 
     <CheckBox
         android:id="@+id/climbingCornerPitReview"
         android:layout_width="wrap_content"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:enabled="false"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/climbingSidePitReview"
@@ -407,7 +407,7 @@
         android:layout_alignBottom="@+id/climbingSidePitReview"
         android:layout_alignParentLeft="true"
         android:text="Climbs Up: "
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <CheckBox
@@ -427,7 +427,7 @@
         android:layout_alignParentLeft="true"
         android:text="# Preloaded"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/textView20"
@@ -436,7 +436,7 @@
         android:layout_alignBottom="@+id/autonomousLevelAimedPitReview"
         android:layout_alignParentLeft="true"
         android:text="Level Aimed"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -447,14 +447,14 @@
         android:layout_below="@+id/TextView03"
         android:text="Placement"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/autonomousLevelAimedPitReview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:enabled="false"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:layout_alignLeft="@+id/autonomousPlacementPitReview"
         android:layout_below="@+id/autonomousNumPreloadedPitReview"
         android:ems="10"
@@ -464,7 +464,7 @@
         android:id="@+id/autonomousPlacementPitReview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:enabled="false"
         android:layout_alignBottom="@+id/textView18"
         android:layout_alignLeft="@+id/climbingHighestLevelReview"
@@ -474,7 +474,7 @@
     <EditText
         android:id="@+id/autonomousNumPreloadedPitReview"
         android:layout_width="wrap_content"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:enabled="false"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/autonomousPlacementPitReview"
@@ -485,7 +485,7 @@
     <CheckBox
         android:id="@+id/autonomousFloorPickupPitReview"
         android:layout_width="wrap_content"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:enabled="false"
         android:layout_height="wrap_content"
         android:layout_below="@+id/autonomousLevelAimedPitReview"
@@ -500,7 +500,7 @@
         android:layout_alignLeft="@+id/textView14"
         android:text="Misc."
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="32dp" />
 
     <TextView
@@ -510,14 +510,14 @@
         android:layout_above="@+id/climbingHighestLevelReview"
         android:layout_alignLeft="@+id/TextView04"
         android:text="Trip Time (Last Shot to Last Shot)"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
         android:id="@+id/miscTripTimePitReview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:layout_alignLeft="@+id/textView21"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/textView21"
@@ -533,7 +533,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/miscTripTimePitReview"
         android:text="Colored Discs" 
-        android:textColor="#FFFFFF"/>
+        android:textColor="#000000"/>
 
     <CheckBox
         android:id="@+id/miscAbleToDefendPitReview"
@@ -543,7 +543,7 @@
         android:layout_alignLeft="@+id/miscTripTimePitReview"
         android:layout_below="@+id/miscTripTimePitReview"
         android:text="Able to Defend"
-        android:textColor="#FFFFFF" />
+        android:textColor="#000000" />
 
     <CheckBox
         android:id="@+id/miscVisionTargetingReview"
@@ -553,7 +553,7 @@
         android:layout_alignLeft="@+id/miscAbleToDefendPitReview"
         android:layout_below="@+id/miscAbleToDefendPitReview"
         android:text="Vision Targeting"
-        android:textColor="#FFFFFF" />
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/miscEstimatedScoreReview"
@@ -564,7 +564,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/textView22"
         android:ems="10"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:inputType="number" />
 
     <TextView
@@ -575,7 +575,7 @@
         android:layout_below="@+id/miscVisionTargetingReview"
         android:text="Estimated Score"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF" />
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/TextView03"
@@ -585,18 +585,8 @@
         android:layout_below="@+id/miscEstimatedScoreReview"
         android:text="Autonomous"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="32dp" />
-
-    <Button
-        android:id="@+id/goBackButtonPitReview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/autonomousFloorPickupPitReview"
-        android:layout_marginTop="82dp"
-        android:text="Back"
-        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/textView23"
@@ -605,7 +595,7 @@
         android:layout_alignLeft="@+id/miscEstimatedScoreReview"
         android:layout_below="@+id/miscEstimatedScoreReview"
         android:text="Maintenance Time (Time to Replace Parts)"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
@@ -617,7 +607,36 @@
         android:layout_below="@+id/textView23"
         android:enabled="false"
         android:ems="10"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:inputType="number" />
+
+    <Button
+        android:id="@+id/goBackButtonPitReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="Back"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/deleteSavedPit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/goBackButtonPitReview"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:textColor="#000000"
+        android:text="Delete Pit" />
+
+    <Button
+        android:id="@+id/uploadSavedPit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/deleteSavedPit"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="Upload Pit" 
+        android:textColor="#000000"/>
 
 </RelativeLayout>

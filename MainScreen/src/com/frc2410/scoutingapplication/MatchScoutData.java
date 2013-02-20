@@ -211,6 +211,7 @@ public class MatchScoutData
 	public String createStringToSend()
 	{
 		StringBuilder sb = new StringBuilder();
+		
 		 //Write Initial Text Data
 		 sb.append(matchNumber);
 		 sb.append("-");
@@ -257,6 +258,7 @@ public class MatchScoutData
 		 sb.append("-");
 		 sb.append(fivePointGoalShotsTaken);
 		 sb.append("-");
+		 
 		 //Append Climbing Data
 		 sb.append(climbing);
 		 sb.append("-");
@@ -274,6 +276,7 @@ public class MatchScoutData
 		 sb.append("-");
 		 sb.append(climbingAlliancePenalties);
 		 sb.append("-");
+		 
 		 //Append Autonomous Data
 		 sb.append(autonomous);
 		 sb.append("-");
@@ -320,6 +323,7 @@ public class MatchScoutData
 		 sb.append("-");
 		 sb.append(humanPlayerShotsTaken);
 		 sb.append("-");
+		 
 		 //Append End Text Data
 		 String goodMovementData = movementDescription.replace("\n", " ");
 		 sb.append(goodMovementData);

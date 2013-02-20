@@ -57,10 +57,6 @@ public class OfflineData extends Activity
         {
             public void onClick(View v) 
             {
-                //Erase Data From Listviews
-            	scoutedMatches.clear();
-            	scoutedPits.clear();
-            	
             	//Reload Saved Scouts
             	loadPreviousScouts();
             }
@@ -98,21 +94,18 @@ public class OfflineData extends Activity
     	EasyTracker.getInstance().setContext(getApplicationContext());
     	EasyTracker.getInstance().activityStart(this);
     	
-    	if(alreadyLoaded)
-    	{
-    		
-    	}
-    	else
-    	{
-    		loadPreviousScouts();
-    		alreadyLoaded = true;
-    	}
+    	//Load Scouts
+    	loadPreviousScouts();
 	}
 
 	private void loadPreviousScouts() 
 	{
-		//Get List of Files and Populate List Views
+		//Create File Helper Object
 		fileAccess = new FileStorageHelper();
+		
+		//Clear List Views to Ensure no Double Population
+		scoutedMatches.clear();
+		scoutedPits.clear();
 		
 		//Make Sure we can read from External Storage
 		if(fileAccess.canWeRead())
@@ -164,6 +157,7 @@ public class OfflineData extends Activity
 			finish();
 		}
 	}
+	
     //Click Listener For Scouted Matches
     private OnItemClickListener scoutedMatchesClickListener = new OnItemClickListener() 
     {
@@ -213,11 +207,14 @@ public class OfflineData extends Activity
     private String decodeFileNameMatches(String fileName)
     {
     	StringBuilder sb = new StringBuilder();
+    	
 		//Create String without Qualifier
 		String newName = fileName.substring(3,fileName.length());
+		
 		//Create String without Extension
 		String[] splitData = newName.split("\\.");
 		String stringToParse = splitData[0];
+		
 		//Split String for Fields
 		String[] parseSplit = stringToParse.split("_");
     	int partNum = 1;

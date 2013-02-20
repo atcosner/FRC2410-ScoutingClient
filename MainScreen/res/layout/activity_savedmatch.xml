@@ -8,7 +8,7 @@
 
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="2510dp" >
+    android:layout_height="2600dp" >
 
         <TextView
             android:id="@+id/textView14"
@@ -1101,15 +1101,6 @@
                     android:focusable="false"
         android:focusableInTouchMode="false" />
 
-        <Button
-            android:id="@+id/goBackButtonReview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/additionalCommentsFieldReview"
-            android:text="Back" />
-
         <EditText
             android:id="@+id/allianceColorReview"
             android:layout_width="wrap_content"
@@ -1120,6 +1111,33 @@
             android:ems="10"
         	android:focusable="false"
         	android:focusableInTouchMode="false"/>
+
+        <Button
+            android:id="@+id/uploadSavedMatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/additionalCommentsFieldReview"
+            android:text="Upload Match" />
+
+        <Button
+            android:id="@+id/deleteSavedMatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/uploadSavedMatch"
+            android:text="Delete Match" />
+
+        <Button
+            android:id="@+id/goBackButtonReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/deleteSavedMatch"
+            android:text="Back" />
     
 	</RelativeLayout>
 </ScrollView>

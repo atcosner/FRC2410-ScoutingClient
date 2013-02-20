@@ -52,6 +52,7 @@ public class FileStorageHelper
 	 
 	 public boolean canWeWrite()
 	 {
+		 //Check for Write ability
 		 boolean canWrite = false;
 		 checkExternalMedia();
 		 if(mExternalStorageAvailable && mExternalStorageWriteable)
@@ -63,6 +64,7 @@ public class FileStorageHelper
 	 
 	 public boolean canWeRead()
 	 {
+		//Check for Read ability
 		 boolean canRead = false;
 		 checkExternalMedia();
 		 if(mExternalStorageAvailable)
@@ -70,6 +72,26 @@ public class FileStorageHelper
 			 canRead = true;
 		 }
 		 return canRead;
+	 }
+	 
+	 public boolean deleteMatchFile(String fN)
+	 {
+		 //Delete Match File Specified by Parameter
+		 boolean errorStatus = false;
+		 File rootPath = new File(Environment.getExternalStorageDirectory(),"scoutingData");
+		 File matchFile = new File(rootPath,fN);
+		 errorStatus = matchFile.delete();
+		 return errorStatus;
+	 }
+	 
+	 public boolean deletePitFile(String fN)
+	 {
+		 //Delete Pit File Specified by Parameter
+		 boolean errorStatus = false;
+		 File rootPath = new File(Environment.getExternalStorageDirectory(),"scoutingData");
+		 File pitFile = new File(rootPath,fN);
+		 errorStatus = pitFile.delete();
+		 return errorStatus;
 	 }
 	 
 	 public boolean writeMatchFile(String matchType)
@@ -97,6 +119,7 @@ public class FileStorageHelper
 		 {
 			 FileWriter outFile = new FileWriter(newScoutingFile);
 			 BufferedWriter outStream = new BufferedWriter(outFile);
+			 
 			 //Write Initial Text Data
 			 outStream.write(String.valueOf(matchData.getMatchNumber()));
 			 outStream.write("-");
@@ -112,6 +135,7 @@ public class FileStorageHelper
 			 outStream.write("-");
 			 outStream.write(String.valueOf(matchData.getAlliancePenalties()));
 			 outStream.write("-");
+			 
 			 //Write Shooting Data
 			 boolean[] shootingDataB = matchData.getShootingBooleans();
 			 for(int k = 0;k<=4;k++)
@@ -125,6 +149,7 @@ public class FileStorageHelper
 				 outStream.write(String.valueOf(scoringDataI[k]));
 				 outStream.write("-");
 			 }
+			 
 			 //Write Climbing Data
 			 boolean[] climbingDataB = matchData.getClimbingBooleans();
 			 for(int k = 0;k<=3;k++)
@@ -138,6 +163,7 @@ public class FileStorageHelper
 				 outStream.write(String.valueOf(climbingDataI[k]));
 				 outStream.write("-");
 			 }
+			 
 			 //Write Autonomous Data
 			 boolean[] autonomousDataB = matchData.getAutonomousBooleans();
 			 for(int k = 0;k<=4;k++)
@@ -151,6 +177,7 @@ public class FileStorageHelper
 				 outStream.write(String.valueOf(autonomousDataI[k]));
 				 outStream.write("-");
 			 }
+			 
 			 //Write Special Features Data
 			 boolean[] specialFeaturesB = matchData.getSpecialFeaturesBooleans();
 			 for(int k = 0;k<=2;k++)
@@ -164,6 +191,7 @@ public class FileStorageHelper
 				 outStream.write(String.valueOf(specialFeaturesI[k]));
 				 outStream.write("-");
 			 }
+			 
 			 //Write End Text Data
 			 outStream.write(matchData.getMovementDescription());
 			 outStream.write("-");
@@ -288,6 +316,7 @@ public class FileStorageHelper
 	 
 	 public String booleanToString(boolean a)
 	 {
+		 //Convert boolean to String for Saving
 		 String converted = "";
 		 if(a == false)
 		 {
