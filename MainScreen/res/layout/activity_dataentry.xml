@@ -399,7 +399,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/threePointGoalShotsTaken"
         android:checked="true"
-        android:text="5 Check Box" />
+        android:text="5 Point Goal" />
 
     <EditText
         android:id="@+id/fivePointGoalShotsMade"

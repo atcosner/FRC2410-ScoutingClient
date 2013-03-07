@@ -64,6 +64,72 @@ public class PitScoutData
 		dateString = sb.toString();	
 	}
 	
+	public String createStringToUpload()
+	{
+		StringBuilder sb = new StringBuilder();
+		sb.append(teamNumber);
+		sb.append("-");
+		sb.append(teamName);
+		sb.append("-");
+		sb.append(strategy);
+		sb.append("-");
+		sb.append(shooter);
+		sb.append("-");
+		sb.append(shooterDescription);
+		sb.append("-");
+		sb.append(finalSpeed);
+		sb.append("-");
+		sb.append(shooterAngle);
+		sb.append("-");
+		sb.append(adjustableShooter);
+		sb.append("-");
+		sb.append(floorPickup);
+		sb.append("-");
+		sb.append(systemSpeed);
+		sb.append("-");
+		sb.append(drivetrainDescription);
+		sb.append("-");
+		sb.append(drivetrainWheels);
+		sb.append("-");
+		sb.append(drivetrainSpeed);
+		sb.append("-");
+		sb.append(drivetrainSpecial);
+		sb.append("-");
+		sb.append(climbing);
+		sb.append("-");
+		sb.append(climbingSpeed);
+		sb.append("-");
+		sb.append(climbingLevel);
+		sb.append("-");
+		sb.append(climbingSide);
+		sb.append("-");
+		sb.append(climbingCorner);
+		sb.append("-");
+		sb.append(tripTime);
+		sb.append("-");
+		sb.append(ableToDefend);
+		sb.append("-");
+		sb.append(coloredDiscs);
+		sb.append("-");
+		sb.append(visionTargeting);
+		sb.append("-");
+		sb.append(estimatedScore);
+		sb.append("-");
+		sb.append(maintTime);
+		sb.append("-");
+		sb.append(autonomous);
+		sb.append("-");
+		sb.append(autonomousPlacement);
+		sb.append("-");
+		sb.append(autonomousNumPreloaded);
+		sb.append("-");
+		sb.append(autonomousLevelAimed);
+		sb.append("-");
+		sb.append(autonomousFloorPickup);
+		
+		return sb.toString();
+	}
+	
 	public void populateFromFile(String fileName)
 	{
 		 //Get Folder Path To Files
@@ -117,12 +183,12 @@ public class PitScoutData
 			 climbingCorner = stringToBooleanDecode(splitData[18]);
 			 
 			 //Read Misc Data
-			 maintTime = Integer.parseInt(splitData[19]);
+			 tripTime = Integer.parseInt(splitData[19]);
 			 ableToDefend = stringToBooleanDecode(splitData[20]);
 			 coloredDiscs = stringToBooleanDecode(splitData[21]);
 			 visionTargeting = stringToBooleanDecode(splitData[22]);
 			 estimatedScore = Integer.parseInt(splitData[23]);
-			 tripTime = Integer.parseInt(splitData[24]);
+			 maintTime = Integer.parseInt(splitData[24]);
 			 
 			 //Read Autonomous Data
 			 autonomous = stringToBooleanDecode(splitData[25]);

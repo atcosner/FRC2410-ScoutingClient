@@ -340,11 +340,11 @@
             android:focusableInTouchMode="false" />
 
         <CheckBox
-            android:id="@+id/fivePointGoalReview"
+            android:id="@+id/fivePointCheckBoxReview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/threePointGoalReview"
-            android:layout_alignBottom="@+id/threePointGoalReview"
+            android:layout_alignBaseline="@+id/threePointCheckBoxReview"
+            android:layout_alignBottom="@+id/threePointCheckBoxReview"
             android:layout_alignParentRight="true"
             android:text="5 Point Goal" 
             android:focusable="false"
@@ -352,7 +352,7 @@
             android:enabled="false"/>
 
         <CheckBox
-            android:id="@+id/threePointGoalReview"
+            android:id="@+id/threePointCheckBoxReview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignRight="@+id/onePointGoalShotsTakenReview"
@@ -368,8 +368,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/onePointGoalShotsTakenReview"
-            android:layout_alignRight="@+id/threePointGoalReview"
-            android:layout_below="@+id/threePointGoalReview"
+            android:layout_alignRight="@+id/threePointCheckBoxReview"
+            android:layout_below="@+id/threePointCheckBoxReview"
             android:ems="10"
             android:inputType="number"
             android:focusable="false"
@@ -413,7 +413,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/threePointGoalShotsMadeReview"
             android:layout_alignBottom="@+id/threePointGoalShotsMadeReview"
-            android:layout_alignLeft="@+id/fivePointGoalReview"
+            android:layout_alignLeft="@+id/fivePointCheckBoxReview"
             android:layout_alignParentRight="true"
             android:ems="10"
             android:inputType="number" 
@@ -803,7 +803,7 @@
          android:id="@+id/threePointGoalAutonomousReview"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:layout_alignLeft="@+id/threePointGoalReview"
+         android:layout_alignLeft="@+id/threePointCheckBoxReview"
          android:layout_below="@+id/onePointGoalShotsTakenAutonomousReview"
          android:layout_marginTop="15dp"
          android:text="3 Point Goal"

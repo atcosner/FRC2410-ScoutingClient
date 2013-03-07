@@ -1461,6 +1461,15 @@ public class FieldsForm extends Activity implements OnCheckedChangeListener, and
 										Toast toast = Toast.makeText(getApplicationContext(), "Match Data was Stored Sucessfully!", Toast.LENGTH_LONG);
 										toast.show();
 										
+										//Mark Data Ready As False
+										dataReady = false;
+										
+										//Set Data String to Null
+										stringDataToSend = null;
+										
+										//Set Status Code to Zero
+										commThreadStatusCode = 0;
+										
 										//Return to Main Screen
 										Intent startMain = new Intent(FieldsForm.this, MainScreen.class);
 										startMain.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -1471,6 +1480,15 @@ public class FieldsForm extends Activity implements OnCheckedChangeListener, and
 										//Display Error Toast to User
 										Toast toast = Toast.makeText(getApplicationContext(), "Error Saving File, Data was not saved", Toast.LENGTH_LONG);
 										toast.show();
+										
+										//Mark Data Ready As False
+										dataReady = false;
+										
+										//Set Data String to Null
+										stringDataToSend = null;
+										
+										//Set Status Code to Zero
+										commThreadStatusCode = 0;
 										
 										//Close Dialog
 										dialog.cancel();
@@ -1487,10 +1505,19 @@ public class FieldsForm extends Activity implements OnCheckedChangeListener, and
 								}
 							}
 				    	});
-				    	builder.setPositiveButton("No", new DialogInterface.OnClickListener() 
+				    	builder.setNegativeButton("No", new DialogInterface.OnClickListener() 
 				    	{
 							public void onClick(DialogInterface dialog, int which) 
 							{
+								//Mark Data Ready As False
+								dataReady = false;
+								
+								//Set Data String to Null
+								stringDataToSend = null;
+								
+								//Set Status Code to Zero
+								commThreadStatusCode = 0;
+								
 								//Return to Main Screen
 								Intent startMain = new Intent(FieldsForm.this, MainScreen.class);
 								startMain.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

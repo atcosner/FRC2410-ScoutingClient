@@ -227,6 +227,7 @@ public class MatchScoutData
 		 sb.append("-");
 		 sb.append(alliancePenalties);
 		 sb.append("-");
+		 
 		 //Write Shooting Data
 		 sb.append(shooting);
 		 sb.append("-");
@@ -331,6 +332,134 @@ public class MatchScoutData
 		 String goodAdditionalComments = additionalComments.replace("\n", " ");
 		 sb.append(goodAdditionalComments);
 		 sb.append("\n");
+		 
+		 return sb.toString();
+	}
+	
+	public String createStringToUpload()
+	{
+		StringBuilder sb = new StringBuilder();
+		
+		 //Write Initial Text Data
+		 sb.append(matchNumber);
+		 sb.append("-");
+		 sb.append(teamNumber);
+		 sb.append("-");
+		 sb.append(allianceColor);
+		 sb.append("-");
+		 sb.append(pointsScored);
+		 sb.append("-");
+		 sb.append(allianceScore);
+		 sb.append("-");
+		 sb.append(teamPenalties);
+		 sb.append("-");
+		 sb.append(alliancePenalties);
+		 sb.append("-");
+		 
+		 //Write Shooting Data
+		 sb.append(shooting);
+		 sb.append("-");
+		 sb.append(onePointGoal);
+		 sb.append("-");
+		 sb.append(twoPointGoal);
+		 sb.append("-");
+		 sb.append(threePointGoal);
+		 sb.append("-");
+		 sb.append(fivePointGoal);
+		 sb.append("-");
+		 sb.append(teamShooterPenalties);
+		 sb.append("-");
+		 sb.append(allianceShooterPenalties);
+		 sb.append("-");
+		 sb.append(onePointGoalShotsMade);
+		 sb.append("-");
+		 sb.append(twoPointGoalShotsMade);
+		 sb.append("-");
+		 sb.append(threePointGoalShotsMade);
+		 sb.append("-");
+		 sb.append(fivePointGoalShotsMade);
+		 sb.append("-");
+		 sb.append(onePointGoalShotsTaken);
+		 sb.append("-");
+		 sb.append(twoPointGoalShotsTaken);
+		 sb.append("-");
+		 sb.append(threePointGoalShotsTaken);
+		 sb.append("-");
+		 sb.append(fivePointGoalShotsTaken);
+		 sb.append("-");
+		 
+		 //Append Climbing Data
+		 sb.append(climbing);
+		 sb.append("-");
+		 sb.append(levelOne);
+		 sb.append("-");
+		 sb.append(levelTwo);
+		 sb.append("-");
+		 sb.append(levelThree);
+		 sb.append("-");
+		 sb.append(sucessfulClimbs);
+		 sb.append("-");
+		 sb.append(totalClimbAttempts);
+		 sb.append("-");
+		 sb.append(climbingTeamPenalties);
+		 sb.append("-");
+		 sb.append(climbingAlliancePenalties);
+		 sb.append("-");
+		 
+		 //Append Autonomous Data
+		 sb.append(autonomous);
+		 sb.append("-");
+		 sb.append(autonomousTeamPenalties);
+		 sb.append("-");
+		 sb.append(autonomousAlliancePenalties);
+		 sb.append("-");
+		 sb.append(onePointGoalAutonomous);
+		 sb.append("-");
+		 sb.append(twoPointGoalAutonomous);
+		 sb.append("-");
+		 sb.append(threePointGoalAutonomous);
+		 sb.append("-");
+		 sb.append(fivePointGoalAutonomous);
+		 sb.append("-");
+		 sb.append(onePointGoalShotsMadeAutonomous);
+		 sb.append("-");
+		 sb.append(twoPointGoalShotsMadeAutonomous);
+		 sb.append("-");
+		 sb.append(threePointGoalShotsMadeAutonomous);
+		 sb.append("-");
+		 sb.append(fivePointGoalShotsMadeAutonomous);
+		 sb.append("-");
+		 sb.append(onePointGoalShotsTakenAutonomous);
+		 sb.append("-");
+		 sb.append(twoPointGoalShotsTakenAutonomous);
+		 sb.append("-");
+		 sb.append(threePointGoalShotsTakenAutonomous);
+		 sb.append("-");
+		 sb.append(fivePointGoalShotsTakenAutonomous);
+		 sb.append("-");
+		 
+		 //Append Special Features Data
+		 sb.append(defense);
+		 sb.append("-");
+		 sb.append(defenseRank);
+		 sb.append("-");
+		 sb.append(climbAssist);
+		 sb.append("-");
+		 sb.append(humanPlayer);
+		 sb.append("-");
+		 sb.append(humanPlayerPenalties);
+		 sb.append("-");
+		 sb.append(humanPlayerShotsMade);
+		 sb.append("-");
+		 sb.append(humanPlayerShotsTaken);
+		 sb.append("-");
+		 
+		 //Append End Text Data
+		 String goodMovementData = movementDescription.replace("\n", " ");
+		 sb.append(goodMovementData);
+		 sb.append("-");
+		 String goodAdditionalComments = additionalComments.replace("\n", " ");
+		 sb.append(goodAdditionalComments);
 		 
 		 return sb.toString();
 	}

@@ -34,7 +34,7 @@
            android:textStyle="bold" />
 
        <ListView
-           android:id="@+id/pairedDevicesView"
+           android:id="@+id/pairedDevicesViewUpload"
            android:layout_width="match_parent"
            android:layout_height="200dp"
            android:layout_alignParentLeft="true"
@@ -45,7 +45,7 @@
        </ListView>
 
        <Button
-           android:id="@+id/refreshPairedDevices"
+           android:id="@+id/refreshPairedDevicesUpload"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:layout_alignParentBottom="true"
@@ -57,7 +57,7 @@
            android:id="@+id/textView3"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:layout_above="@+id/refreshPairedDevices"
+           android:layout_above="@+id/refreshPairedDevicesUpload"
            android:layout_alignParentLeft="true"
            android:text="If you do not see your device on this list, please exit the app and pair your device with your computer before proceeding"
            android:textAppearance="?android:attr/textAppearanceLarge"

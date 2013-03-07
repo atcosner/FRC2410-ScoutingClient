@@ -18,14 +18,10 @@ import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class ServerLink extends Activity
-{
-	//Variable to Pass As Extra
-	public final static String EXTRA_TEAM_NUMBER = "com.frc2410.scoutingapplication.teamnumber";
-	public final static String EXTRA_TEAM_COLOR = "com.frc2410.scoutingapplication.teamcolor";
-	public final static String EXTRA_MATCH_NUMBER = "com.frc2410.scoutingapplication.matchnumber";
-	
+public class UploadLink extends Activity
+{	
 	//State variables
 	public static final int MESSAGE_CONNECTED = 1;
 	public static final int MESSAGE_FAILED_CONNECTION = 2;
@@ -39,6 +35,7 @@ public class ServerLink extends Activity
 	public static final int MESSAGE_SENT_READY = 10;
 	public static final int MESSAGE_CLIENT_DATA = 11;
 	public static final int MESSAGE_START_DATA_COLLECTION = 12;
+	public static final int MESSAGE_SEND_COMPLETE = 13;
 	
 	//BlueTooth Adapter
     private BluetoothAdapter BtAdapter;
@@ -55,6 +52,12 @@ public class ServerLink extends Activity
     //Text View for output Data
     TextView out;
     
+    //Upload type
+    String uploadType;
+    
+    //Upload String
+    String uploadData;
+    
     public static boolean inActivity = true;
     
 	protected void onCreate(Bundle savedInstanceState)
@@ -65,17 +68,29 @@ public class ServerLink extends Activity
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         
         //Set View to the main Screen
-        setContentView(R.layout.activity_serverlink);
+        setContentView(R.layout.activity_uploadlink);
+        
+        //Setup TextView for Debug Data
+        out = (TextView) findViewById(R.id.bluetoothDebugTextViewUpload);
+        
+        //Make Text View Scrollable
+        out.setMovementMethod(new ScrollingMovementMethod());
+        
+        //Get Extra for Upload Type
+        Intent intent = getIntent();
+        uploadType = intent.getStringExtra("EXTRA_UPLOAD_TYPE");
+        out.append("Upload Type: " + uploadType + "\n");
+        
+        //Get Extra for Upload Data
+        uploadData = intent.getStringExtra("EXTRA_UPLOAD_DATA");
+        out.append("Upload Data: " + uploadData + "\n");
         
         //Setup Abandon Button
-        Button quitButton = (Button) findViewById(R.id.quitConnectionButton);
+        Button quitButton = (Button) findViewById(R.id.quitConnectionButtonUpload);
         quitButton.setOnClickListener(new OnClickListener() 
         {
             public void onClick(View v) 
             {
-            	//Send disconnect signal to Server
-            	
-            	
             	//Close Activity
             	finish();
             }
@@ -84,17 +99,10 @@ public class ServerLink extends Activity
         // Get the local Bluetooth Adapter
         BtAdapter = BluetoothAdapter.getDefaultAdapter();
         
-        //Setup TextView for Debug Data
-        out = (TextView) findViewById(R.id.bluetoothDebugTextView);
-        
-        //Make Text View Scrollable
-        out.setMovementMethod(new ScrollingMovementMethod());
-        
         //Say we have created the activity
         out.append("Activity Create\n");
         
         //Get Server Address from Intent
-        Intent intent = getIntent();
         address = intent.getStringExtra(ServerSettings.EXTRA_MAC);
         
         //Write out Server Address
@@ -117,7 +125,7 @@ public class ServerLink extends Activity
   	    BtAdapter.cancelDiscovery();
   	    
   	    //Create Thread to Deal with Connection
-  	    new Thread(new ConnectionThread(BtSocket, mHandler)).start();
+  	    new Thread(new UploadConnectionThread(BtSocket, mHandler, uploadType, uploadData)).start();
 	}
 	
 	protected void onStart()
@@ -230,22 +238,16 @@ public class ServerLink extends Activity
 	            		String cD = String.valueOf(msg.obj);
 	            		out.append("To Server: " + cD +"\n");
 	            		break;
-	            	case MESSAGE_START_DATA_COLLECTION:
-	            		out.append("Got Message to Start Data Collection\n");
-	            		Bundle b = msg.getData();
-	            		int teamNumber = b.getInt("tN");
-	            		int matchNumber = b.getInt("mN");
-	            		String teamColor = b.getString("tC");
-	            		out.append("Team Number: " + teamNumber + "\n");
-	            		out.append("Match Number: " + matchNumber + "\n");
-	            		out.append("Team Color: " + teamColor + "\n");
-	            		out.append("Starting Data Collection Form\n");
-	                	Intent intent = new Intent(ServerLink.this, FieldsForm.class);
-	                	intent.putExtra("EXTRA_MODE", "Online");
-	                	intent.putExtra(ServerLink.EXTRA_MATCH_NUMBER,matchNumber);
-	                	intent.putExtra(ServerLink.EXTRA_TEAM_NUMBER,teamNumber);
-	                	intent.putExtra(ServerLink.EXTRA_TEAM_COLOR,teamColor);
-	                	startActivity(intent);
+	            	case MESSAGE_SEND_COMPLETE:
+	            		out.append("Send Complete\n");
+	            		//Create Toast to Inform User
+	            		Toast toast = Toast.makeText(getApplicationContext(), "Uploaded Data was Recieved By the Server!", Toast.LENGTH_LONG);
+	            		toast.show();
+	            		
+						//Return to Main Screen
+						Intent startMain = new Intent(UploadLink.this, MainScreen.class);
+						startMain.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+						startActivity(startMain);
 	            		break;
 	            }
 	        }

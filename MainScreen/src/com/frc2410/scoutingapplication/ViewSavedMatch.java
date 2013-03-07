@@ -51,6 +51,9 @@ public class ViewSavedMatch extends Activity
         //Create Helper Object
         md = new MatchScoutData();
         
+		//Populate Object with Supplies File
+		md.populateFromFile(fileName);
+		
         //Create Button to Delete Match
         Button deleteMatch = (Button) findViewById(R.id.deleteSavedMatch);
         deleteMatch.setOnClickListener(new OnClickListener() 
@@ -106,20 +109,12 @@ public class ViewSavedMatch extends Activity
         uploadMatch.setOnClickListener(new OnClickListener() 
         {
             public void onClick(View v) 
-            {
-            	//Inform Users of Future Feature
-            	AlertDialog.Builder builder = new AlertDialog.Builder(ViewSavedMatch.this);
-            	builder.setCancelable(false);
-            	builder.setTitle("Comming Soon");
-            	builder.setMessage("The Upload Feature is currently not available, but will be released soon!");
-            	builder.setPositiveButton("OK", new DialogInterface.OnClickListener() 
-            	{
-					public void onClick(DialogInterface dialog, int which) 
-					{
-						dialog.cancel();
-					}
-				});
-            	builder.show();
+            {          	
+            	//Open Upload Link to Send Data
+            	Intent intent = new Intent(ViewSavedMatch.this, UploadSettings.class);
+            	intent.putExtra("EXTRA_UPLOAD_TYPE", "Match");
+            	intent.putExtra("EXTRA_UPLOAD_DATA", md.createStringToUpload());
+            	startActivity(intent);
             }
         });
 	}
@@ -131,9 +126,6 @@ public class ViewSavedMatch extends Activity
     	//Setup Google Analytics
     	EasyTracker.getInstance().setContext(getApplicationContext());
     	EasyTracker.getInstance().activityStart(this);
-    	
-		//Populate Object with Supplies File
-		md.populateFromFile(fileName);
 		
 		//Create Variables For Text Fields
     	EditText matchNumber = (EditText) findViewById(R.id.matchNumberFieldReview);

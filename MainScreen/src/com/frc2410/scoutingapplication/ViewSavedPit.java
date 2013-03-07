@@ -1,6 +1,8 @@
 package com.frc2410.scoutingapplication;
 
 import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.Log;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -98,21 +100,16 @@ public class ViewSavedPit extends Activity
         {
             public void onClick(View v) 
             {
-            	//Inform Users of Future Feature
-            	AlertDialog.Builder builder = new AlertDialog.Builder(ViewSavedPit.this);
-            	builder.setCancelable(false);
-            	builder.setTitle("Comming Soon");
-            	builder.setMessage("The Upload Feature is currently not available, but will be released soon!");
-            	builder.setPositiveButton("OK", new DialogInterface.OnClickListener() 
-            	{
-					public void onClick(DialogInterface dialog, int which) 
-					{
-						dialog.cancel();
-					}
-				});
-            	builder.show();
+            	//Open Upload Link to Send Data
+            	Intent intent = new Intent(ViewSavedPit.this, UploadSettings.class);
+            	intent.putExtra("EXTRA_UPLOAD_TYPE", "Pit");
+            	intent.putExtra("EXTRA_UPLOAD_DATA", pd.createStringToUpload());
+            	Log.i(pd.createStringToUpload());
+            	startActivity(intent);
             }
         });
+        
+        Log.i(pd.createStringToUpload());
 	}
 	
 	protected void onStart()
